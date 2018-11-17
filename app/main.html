@@ -20,20 +20,27 @@
 <body onload="startTime();">
     <header class="application_bar">
         <!-- Using cat image as placeholder, this will be changed later -->
+        <!-- TODO: Hide menu inside that puss, application will be in fullscreen anyway. Menu cam be hidden inside logo.-->
         <img class="application_header" id="application_header__logo" src="assets/images/cat.png" alt="Application logo">
         <h4 class="application_header" id="aplication_header__title">Školský informačný systém</h4>
         <h4 class="application_header" id="application_header__date_time"></h4>
     </header>
     <main>
-        <webview id="webview" src="https://spspb.edupage.org/substitution"></webview>
+       <div class="wrapper">
+           <div id="sidebar">
+               <h1>THIS IS A SIDEBAR!</h1>
+               <p>Seems like this might work.</p>
+           </div>
+           <div id="content">
+               <!-- Uhm. Just leave it as-is. I have no idea what I did there. -->
+                <webview id="content" src="https://spspb.edupage.org/substitution"></webview>
+           </div>
+       </div>
     </main>
     <footer>
         <div class="footer" id="footer_dev_message">
-            <p><i class="fas fa-code"></i>
-                with <i class="fas fa-heart"></i>
-                by <a href="https://github.com/ttomovcik/">
-                    <i class="fab fa-github"></i>/ttomovcik</a></p>
-        </div>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by <a href="https://github.com/ttomovcik/"><i
+                        class="fab fa-github"></i> / ttomovcik</a></p>
         </div>
     </footer>
 

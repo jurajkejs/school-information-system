@@ -52,17 +52,28 @@ header {
 
 main {
     flex: 1;
-    background-image: linear-gradient(red, orange);
     width: 100%;
     height: max-content;
-    align-content: center;
 }
 
-#webview {
-    height: auto;
+.wrapper {
     display: inline-flex;
-    width: 100%;
+    flex-direction: row;
     height: 100%;
+    width: 100%;
+    background-color: #212121;
+}
+
+#sidebar{
+    height: 100%;
+    width: 25%;
+    background-color: aqua;
+}
+
+#content{
+    height: 100%;
+    flex: 1;
+    background-color: chocolate;
 }
 
 footer {
