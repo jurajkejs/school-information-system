@@ -65,9 +65,24 @@ main {
 }
 
 #sidebar{
+    display: inline-block;
+    vertical-align: top;
     height: 100%;
     width: 25%;
     background-color: aqua;
+}
+
+#sidebar__container_weather{
+    height: 35%;
+    width: max-content;
+    background-color: red;
+}
+
+#sidebar__container_class_data{
+    height: 70%;
+    width: max-content;
+    background: #73AD21;
+    background-color: green;
 }
 
 #content{
