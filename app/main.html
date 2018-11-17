@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Školský informačný systém</title>
+    <link rel="shortcut icon" type="image/png" href="/app/assets/images/cat.png" />
+    <link rel="favicon" type="image/png" href="/app/assets/images/cat.png" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
     <link rel="stylesheet" href="../node_modules/material-design-lite/material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -15,26 +17,22 @@
     <script src="renderer.js"></script>
 </head>
 
-<!-- Spraviť flex wrapper -->
-
 <body onload="startTime();">
     <header class="application_bar">
         <!-- Using cat image as placeholder, this will be changed later -->
         <img class="application_header" id="application_header__logo" src="assets/images/cat.png" alt="Application logo">
         <h4 class="application_header" id="aplication_header__title">Školský informačný systém</h4>
-        <h4 class="application_header" id="application_header__date_time">status</h4>
+        <h4 class="application_header" id="application_header__date_time"></h4>
     </header>
     <main>
-        <h1>4😠4</h1>
-        <h4>Stránka nebola nájdená</h4>
+        <webview id="webview" src="https://spspb.edupage.org/substitution"></webview>
     </main>
     <footer>
         <div class="footer" id="footer_dev_message">
-            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by <a href="https://github.com/ttomovcik/">@ttomovcik</a></p>
-        </div>
-        <div class="footer" id="admin_links">
-            <a href="/settings">Nastavenia</a>
-            <a href="/login">O aplikácii</a>
+            <p><i class="fas fa-code"></i>
+                with <i class="fas fa-heart"></i>
+                by <a href="https://github.com/ttomovcik/">
+                    <i class="fab fa-github"></i>/ttomovcik</a></p>
         </div>
         </div>
     </footer>
