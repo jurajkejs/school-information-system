@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/cat.png" />
+    <link rel="favicon" type="image/png" href="/assets/images/cat.png" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/photon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <title>Školský informačný systém</title>
+</head>
+
+<body onload="startTime();">
+    <header class="application_bar">
+        <!-- Using cat image as placeholder, this will be changed later -->
+        <!-- TODO: Hide menu inside that puss, application will be in fullscreen anyway. Menu cam be hidden inside logo.-->
+        <img class="application_header" id="application_header__logo" src="assets/images/cat.png" alt="Application logo">
+        <h4 class="application_header" id="aplication_header__title">Školský informačný systém</h4>
+        <h4 class="application_header" id="application_header__date_time"></h4>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div id="sidebar">
+                <div id="sidebar__container_weather">
+                    <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/"
+                        data-label_1="Považská Bystrica">Považská Bystrica</a>
+                </div>
+                <div id="sidebar__container_class_data">
+                    <div class="alert alert-danger" role="alert" id="warning">
+                        Nepodarilo sa načítať údaje o škole
+                    </div>
+                </div>
+            </div>
+            <div class="shadow-lg p-3 mb-5 bg-white rounded" id="content">
+                <!-- Temporary webview from electron, this will be replaced later -->
+                <webview id="content" src="https://spspb.edupage.org/substitution"></webview>
+            </div>
+        </div>
+    </main>
+    <!-- Scripts -->
+    <script src="renderer.js"></script>
+    <script>
+        ! function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'weatherwidget-io-js');
+    </script>
+</body>
+
+</html>

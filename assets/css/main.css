@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    height: 64px;
+    height: 72px;
 }
 
 .application_bar {
@@ -61,39 +61,38 @@ main {
     flex-direction: row;
     height: 100%;
     width: 100%;
-    background-color: #212121;
+    background-color: #dfdfdf
 }
 
-#sidebar{
+#sidebar {
     display: inline-block;
     vertical-align: top;
     height: 100%;
     width: 25%;
-    background-color: aqua;
 }
 
-#sidebar__container_weather{
-    height: 35%;
+#sidebar__container_weather {
+    min-height: 35%;
+    height: auto;
     width: max-content;
-    background-color: red;
+    background-color: #dfdfdf;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-#sidebar__container_class_data{
-    height: 70%;
+#sidebar__container_class_data {
+    min-height: max-content;
+    height: auto;
     width: max-content;
-    background: #73AD21;
-    background-color: green;
 }
 
-#content{
+#warning {
+    margin-top: 50%;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+#content {
     height: 100%;
     flex: 1;
     background-color: chocolate;
-}
-
-footer {
-    display: flex;
-    justify-content: space-evenly;
-    height: 42px;
-    background-color: #fafafa;
 }
