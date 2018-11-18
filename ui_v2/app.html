@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Meta info -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>Školský informačný systém</title>
+
+    <!-- Local imports -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/ui_main.css" />
+
+    <!-- Remote imports -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Main UI -->
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="shadow p-3 mb-5 bg-white rounded" id="container__date_time">
+                <h2 id="date_time"></h2>
+            </div>
+            <div class="shadow p-3 mb-5 bg-white rounded" id="container__weather">
+                <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/" data-label_1="Považská Bystrica">Považská
+                    Bystrica</a>
+            </div>
+            <div class="shadow p-3 mb-5 bg-white rounded" id="container__class_data">
+                <h4>1.A</h4>
+                <p>Strojníctvo (7:50 - 8:25)</p>
+                <h4>1.B</h4>
+                <p>Informatika (7:50 - 8:25)</p>
+                <h4>1.E</h4>
+                <p>Matematika (7:50 - 8:25)</p>
+                <h4>4.C</h4>
+                <p>¯\_(ツ)_/¯ (7:50 - 8:25)</p>
+            </div>
+        </div>
+        <div class="shadow p-3 mb-5 bg-white rounded" id="content_main">
+            <webview id="webview" src="http://duckduckgo.com/"></webview>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Script / weather data -->
+    <script>
+        ! function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'weatherwidget-io-js');
+    </script>
+    <!-- Script / renderer -->
+    <script src="app_renderer.js"></script>
+    <!-- Script / date and time -->
+    <script type="text/javascript" language="javascript">
+        window.onload = function()
+        {
+            startTime();
+        };
+  </script>
+</body>
+
+</html>

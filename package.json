@@ -1,0 +1,26 @@
+{
+  "name": "school-information-system",
+  "version": "0.1.0-indev",
+  "description": "Nástenka s informáciami pre žiakov",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttomovcik/school-information-system.git"
+  },
+  "author": "Tomáš Tomovčík",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ttomovcik/school-information-system/issues"
+  },
+  "homepage": "https://github.com/ttomovcik/school-information-system#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "electron": "^3.0.9",
+    "electron-store": "^2.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.5"
+  }
+}
