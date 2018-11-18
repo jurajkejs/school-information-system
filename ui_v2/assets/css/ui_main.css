@@ -49,7 +49,19 @@ html,body{
     margin-top: -32px;
     background-color: #ecf0f1;
     color: #2c3e50;
+    font-family: 'Montserrat', sans-serif;
 }
+
+#container__metadata{
+    height: auto;
+    width: auto;
+    margin: 8px;
+    margin-top: -32px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-family: 'Montserrat', sans-serif;
+}
+
 
 #content_main{
     flex: 1;
