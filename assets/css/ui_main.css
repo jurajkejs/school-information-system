@@ -48,7 +48,7 @@ p{
     min-height: 128px;
     max-height: 128px;
     margin: 8px;
-    margin-top: -32px;
+    margin-top: -40px;
     overflow: hidden;
     background-color: #34495e !important;
     color: #ecf0f1 !important;
@@ -58,7 +58,7 @@ p{
     height: auto;
     width: auto;
     margin: 8px;
-    margin-top: -32px;
+    margin-top: -40px;
     background-color: #34495e !important;
     color: #2c3e50;
     font-family: 'Montserrat', sans-serif;
@@ -68,7 +68,7 @@ p{
     height: auto;
     width: auto;
     margin: 8px;
-    margin-top: -32px;
+    margin-top: -40px;
     background-color: #34495e !important;
     color: #2c3e50;
     font-family: 'Montserrat', sans-serif;

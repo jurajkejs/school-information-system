@@ -12,7 +12,7 @@ function createWindow() {
             webSecurity: false
         }
     })
-    win.loadURL('file:///ui_v2/app.html')
+    win.loadURL('file:///app.html')
     win.webContents.openDevTools();
     win.on('closed', () => {
         win = null
