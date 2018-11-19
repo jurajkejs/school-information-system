@@ -1,8 +1,81 @@
 const {
     app,
-    BrowserWindow
+    BrowserWindow,
+    Menu,
 } = require('electron')
+const path = require('path')
+
+
 let win
+
+const menuTemplate = [{
+        label: 'Súbor',
+        submenu: [{
+                label: 'Nastavenia',
+                click() {
+                    let settingsWindow = new BrowserWindow({
+                        width: 800,
+                        height: 700,
+                    })
+                    settingsWindow.on('close', function () {
+                        settingsWindow = null
+                    })
+                    settingsWindow.loadURL('file:///src/ui/settings/settings.html')
+                    settingsWindow.webContents.openDevTools();
+                    settingsWindow.show()
+                }
+            },
+            {
+                type: 'separator'
+            }, {
+                role: 'minimize'
+            },
+            {
+                role: 'close'
+            }
+        ]
+    },
+    {
+        label: 'Zobrazenie',
+        submenu: [{
+                role: 'reload'
+            },
+            {
+                role: 'forcereload'
+            },
+            {
+                type: 'separator'
+            },
+            {
+                role: 'resetzoom'
+            },
+            {
+                role: 'zoomin'
+            },
+            {
+                role: 'zoomout'
+            },
+            {
+                type: 'separator'
+            },
+            {
+                role: 'togglefullscreen'
+            }
+        ]
+    },
+    {
+        role: 'help',
+        submenu: [{
+            label: 'Nápoveda',
+            click() {
+                require('electron').shell.openExternal('https://github.com/ttomovcik/school-information-system/wiki')
+            }
+        }]
+    }
+]
+
+const menu = Menu.buildFromTemplate(menuTemplate)
+Menu.setApplicationMenu(menu)
 
 function createWindow() {
     win = new BrowserWindow({
@@ -14,7 +87,7 @@ function createWindow() {
         }
     })
     win.loadURL('file:///src/app.html')
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
     win.on('closed', () => {
         win = null
     })
