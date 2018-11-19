@@ -12,7 +12,7 @@
 
     <!-- Local imports -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/ui_main.css" />
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Remote imports -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -28,8 +28,8 @@
                 <h3 id="date_time"></h3>
             </div>
             <div class="shadow p-3 mb-5 bg-white rounded" id="container__weather">
-                <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/" data-label_1="Považská Bystrica" data-textcolor="#ecf0f1">Považská
-                    Bystrica</a>
+                <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/" data-label_1="Považská Bystrica"
+                    data-textcolor="#ecf0f1">Považská Bystrica</a>
             </div>
             <div class="shadow p-3 mb-5 bg-white rounded" id="container__class_data">
                 <h4>1.A</h4>
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="shadow p-3 mb-5 bg-white rounded" id="content_main">
-            <webview id="webview" src="http://duckduckgo.com/"></webview>
+            <!-- <webview id="webview" src="http://duckduckgo.com/"></webview> -->
         </div>
     </div>
 
@@ -65,7 +65,7 @@
         }(document, 'script', 'weatherwidget-io-js');
     </script>
     <!-- Script / renderer -->
-    <script src="app_renderer.js"></script>
+    <script src="app_renderer.js"></script>    
 </body>
 
 </html>

@@ -9,10 +9,11 @@ function createWindow() {
         width: 1280,
         height: 720,
         webPreferences: {
-            webSecurity: false
+            webSecurity: false,
+            allowRunningInsecureContent: true // Povolí HTTP obsah z iných stránok
         }
     })
-    win.loadURL('file:///app.html')
+    win.loadURL('file:///src/app.html')
     win.webContents.openDevTools();
     win.on('closed', () => {
         win = null
@@ -21,7 +22,6 @@ function createWindow() {
 app.on('ready', createWindow)
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        // Vynútiť zatvorenie aplikácie pre macOS, treba doknčiť force-close pre Windows
         app.quit()
     }
 })
