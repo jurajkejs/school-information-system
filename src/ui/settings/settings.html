@@ -2,45 +2,51 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Nastavenia</title>
 
     <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/ui_settings.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="shadow p-3 mb-5 bg-white rounded" id="settings__school">
+
+        <div class="shadow p-3 mb-5 bg-white rounded" id="container__settings__school">
             <h2>Nastavenia školy</h2>
             <div class="settings_school_wrapper">
                 <h4 style="margin-top: 16px;"><i style="margin-right: 8px;"></i>Adresa serveru</h4>
-                <input class="shadow form-control" type="text" id="school_server" placeholder="Napr.: https://spspb.edupage.org"></input>
+                <input autofocus class="shadow bg-dark border-dark text-light form-control" type="text" id="settings__school__input__school_server"
+                    onclick="this.select()" placeholder="Napr.: https://spspb.edupage.org"></input>
             </div>
         </div>
-        <div class="shadow p-3 mb-5 bg-white rounded" id="settings__application">
+
+        <div class="shadow p-3 mb-5 bg-white rounded" id="container__settings__application">
             <h2>Nastavenia aplikácie</h2>
             <div class="settings__application__wrapper">
                 <h4 id="color_scheme_header"><i style="margin-right: 8px;"></i>Farebná schéma aplikácie</h4>
                 <div class="dropdown">
-                    <a class="shadow btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 8px; background-color: #fff; color: #6c757d;">
+                    <a class="shadow btn btn-secondary dropdown-toggle bg-dark border-dark text-light" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="container__settings__application_dropdown_theme">
                         Tmavá (predvolená)
                     </a>
-                    <div class=" shadow dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#"><i class="far fa-moon"></i> Tmavá (predvolená)</a>
-                        <a class="dropdown-item" href="#"><i class="far fa-sun"></i> Svetlá</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-tablets"></i> LSD</a>
+                    <div class=" shadow dropdown-menu bg-dark border-dark text-light" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item bg-dark border-dark text-light"><i class="far fa-moon"></i> Tmavá
+                            (predvolená)</a>
+                        <a class="dropdown-item bg-dark border-dark text-light"><i class="far fa-sun"></i> Svetlá (mení
+                            sa automaticky)</a>
+                        <a class="dropdown-item bg-dark border-dark text-light"><i class="fas fa-tablets"></i> LSD
+                            (Flat UI - farebná)</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="shadow p-3 mb-5 bg-white rounded" id="settings__information">
+
+        <div class="shadow p-3 mb-5 bg-white rounded" id="container__settings__information">
             <h2>Informácie</h2>
             <p style="margin-left:8px;">Školský informačný system</p>
             <p style="margin-left:8px; margin-top: -16px;">0.1.0-indev</p>
@@ -49,20 +55,31 @@
                 by <a href="https://github.com/ttomovcik">
                     Tomáš Tomovčík</a></p>
             <div class="wrapper__settings__information_buttons">
-                <button type="button" class="shadow btn btn-danger rounded" id="btn_reset_settings">Reset nastavení</button>
-                <button type="button" class="shadow btn btn-primary rounded" id="btn_check_updates">Skontrolovať aktualizácie</button>
-                <button type="button" class="shadow btn btn-outline-light" id="btn_help">Nechápem čo sa deje (nápoveda)</button>
+                <button type="button" class="shadow btn btn-outline-danger rounded" id="settings__information__button_reset_settings">Reset
+                    nastavení</button>
+                <button type="button" class="shadow btn btn-outline-primary rounded" id="settings__information__button_check_updates">Skontrolovať
+                    aktualizácie</button>
+                <button type="button" class="shadow btn btn-outline-light" id="settings__information__button_help">Nápoveda</button>
             </div>
         </div>
-        <button type="button" class="shadow btn btn-outline-success" style="position:absolute; bottom:0; right:0; margin: 16px;">Uložiť nastavenia a zavrieť</button>
+
+        <button type="button" onclick="saveSettings();" class="shadow-lg btn btn-success" id="settings__button_save_settings">Uložiť
+            nastavenia a zavrieť</button>
     </div>
+
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
     <script src="settings_renderer.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script src="../../../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="../../../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
 </body>
 
 </html>

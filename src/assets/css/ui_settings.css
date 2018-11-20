@@ -1,33 +1,35 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
 
-html,body{
+html,
+body {
     top: 0;
     left: 0;
     height: 100%;
     background-color: #2c3e50 !important;
 }
 
-h2{
+h2 {
     color: #fafafa;
+    margin-bottom: 16px;
     font-family: 'Montserrat', sans-serif;
 }
 
-h4{
+h4 {
     color: #ecf0f1;
     font-family: 'Roboto', sans-serif;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
     background-color: #2c3e50 !important;
-    overflow: hidden;
+    overflow: auto;
 }
 
-#settings__school{
+#container__settings__school {
     height: auto;
     width: auto;
     margin: 16px;
@@ -36,19 +38,35 @@ h4{
     font-family: 'Montserrat', sans-serif;
 }
 
-.settings_school_wrapper{
+.settings_school_wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#school_server{
+#settings__school__input__school_server {
     margin-top: 12px;
     width: 50%;
     max-width: 70%;
 }
 
-#settings__application{
+#settings__school__input__school_server:hover {
+    border-color: #3498db !important;
+}
+
+#settings__school__input__school_server:focus {
+    border-color: #3498db !important;
+}
+
+#settings__school__input__school_server:hover:focus {
+    border-color: #3498db !important;
+}
+
+#container__settings__application_dropdown_theme{
+    font-family: 'Roboto', sans-serif !important;
+}
+
+#container__settings__application {
     height: auto;
     width: auto;
     margin: 16px;
@@ -57,13 +75,13 @@ h4{
     color: #ecf0f1 !important;
 }
 
-.settings__application__wrapper{
+.settings__application__wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#settings__information{
+#container__settings__information {
     height: auto;
     width: auto;
     margin: 16px;
@@ -73,15 +91,22 @@ h4{
     color: #ecf0f1 !important;
 }
 
-.wrapper__settings__information_buttons{
+.wrapper__settings__information_buttons {
     display: flex;
     flex-direction: row;
 }
 
-#btn_check_updates{
+#settings__information__button_check_updates {
     margin-left: 16px;
 }
 
-#btn_help{
+#settings__information__button_help {
     margin-left: 16px;
+}
+
+#settings__button_save_settings {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 16px;
 }

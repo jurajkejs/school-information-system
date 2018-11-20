@@ -3,7 +3,6 @@ const {
     BrowserWindow,
     Menu,
 } = require('electron')
-const path = require('path')
 
 
 let win
@@ -15,61 +14,38 @@ const menuTemplate = [{
                 click() {
                     let settingsWindow = new BrowserWindow({
                         width: 800,
-                        height: 700,
+                        height: 800,
                     })
                     settingsWindow.on('close', function () {
                         settingsWindow = null
                     })
                     settingsWindow.loadURL('file:///src/ui/settings/settings.html')
-                    settingsWindow.webContents.openDevTools();
-                    settingsWindow.show()
+                    settingsWindow.show();
                 }
             },
-            {
-                type: 'separator'
-            }, {
-                role: 'minimize'
-            },
-            {
-                role: 'close'
-            }
+            {type: 'separator'}, 
+            {role: 'minimize'},
+            {role: 'close'}
         ]
     },
     {
         label: 'Zobrazenie',
-        submenu: [{
-                role: 'reload'
-            },
-            {
-                role: 'forcereload'
-            },
-            {
-                type: 'separator'
-            },
-            {
-                role: 'resetzoom'
-            },
-            {
-                role: 'zoomin'
-            },
-            {
-                role: 'zoomout'
-            },
-            {
-                type: 'separator'
-            },
-            {
-                role: 'togglefullscreen'
-            }
+        submenu: [
+            {role: 'reload'},
+            {role: 'forcereload'},
+            {type: 'separator'},
+            {role: 'resetzoom'},
+            {role: 'zoomin'},
+            {role: 'zoomout'},
+            {type: 'separator'},
+            {role: 'togglefullscreen'}
         ]
     },
     {
         role: 'help',
         submenu: [{
             label: 'Nápoveda',
-            click() {
-                require('electron').shell.openExternal('https://github.com/ttomovcik/school-information-system/wiki')
-            }
+            click() { require('electron').shell.openExternal('https://github.com/ttomovcik/school-information-system/wiki') }
         }]
     }
 ]
@@ -83,13 +59,13 @@ function createWindow() {
         height: 720,
         webPreferences: {
             webSecurity: false,
-            allowRunningInsecureContent: true // Povolí HTTP obsah z iných stránok
+            allowRunningInsecureContent: true
         }
     })
     win.loadURL('file:///src/app.html')
-    // win.webContents.openDevTools();
     win.on('closed', () => {
         win = null
+        app.quit();
     })
 }
 app.on('ready', createWindow)
