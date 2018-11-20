@@ -14,7 +14,7 @@ const menuTemplate = [{
                 click() {
                     let settingsWindow = new BrowserWindow({
                         width: 800,
-                        height: 800,
+                        height: 600,
                     })
                     settingsWindow.on('close', function () {
                         settingsWindow = null

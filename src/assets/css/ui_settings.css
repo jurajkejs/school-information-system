@@ -23,7 +23,7 @@ h4 {
 .wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: max-content;
     width: 100%;
     background-color: #2c3e50 !important;
     overflow: auto;
@@ -38,31 +38,39 @@ h4 {
     font-family: 'Montserrat', sans-serif;
 }
 
-.settings_school_wrapper {
+.container__settings__school_wrapper_edupage_info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-#settings__school__input__school_server {
+#settings__school__input__school_server,
+#settings__school__input__websiteArray,
+#settings__application__input__app_name {
     margin-top: 12px;
-    width: 50%;
+    width: 75%;
     max-width: 70%;
 }
 
-#settings__school__input__school_server:hover {
+#settings__school__input__school_server,
+#settings__school__input__websiteArray,
+#settings__application__input__app_name:hover {
     border-color: #3498db !important;
 }
 
-#settings__school__input__school_server:focus {
+#settings__school__input__school_server,
+#settings__school__input__websiteArray,
+#settings__application__input__app_name:focus {
     border-color: #3498db !important;
 }
 
-#settings__school__input__school_server:hover:focus {
+#settings__school__input__school_server,
+#settings__school__input__websiteArray,
+#settings__application__input__app_name:hover:focus {
     border-color: #3498db !important;
 }
 
-#container__settings__application_dropdown_theme{
+#container__settings__application_dropdown_theme {
     font-family: 'Roboto', sans-serif !important;
 }
 
@@ -77,7 +85,7 @@ h4 {
 
 .settings__application__wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 

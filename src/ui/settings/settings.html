@@ -1,3 +1,5 @@
+<!-- V tomto je bordel, treba to prerobiť nakoniec. -->
+
 <!DOCTYPE html>
 <html>
 
@@ -18,20 +20,43 @@
 
         <div class="shadow p-3 mb-5 bg-white rounded" id="container__settings__school">
             <h2>Nastavenia školy</h2>
-            <div class="settings_school_wrapper">
-                <h4 style="margin-top: 16px;"><i style="margin-right: 8px;"></i>Adresa serveru</h4>
+            <div class="container__settings__school_wrapper_edupage_info">
+                <h4 style="margin-top: 8px;"><i style="margin-right: 8px;"></i>Adresa školy na EduPage</h4>
                 <input autofocus class="shadow bg-dark border-dark text-light form-control" type="text" id="settings__school__input__school_server"
-                    onclick="this.select()" placeholder="Napr.: https://spspb.edupage.org"></input>
+                    onclick="this.select()" style="margin-left: 8px;" placeholder="Napr.: https://spspb.edupage.org"></input>
+            </div>
+            <div class="container__settings__school_wrapper_webview_pages">
+                <h4 style="margin-top: 16px;"><i style="margin-right: 8px;"></i>Zoznam webstránok na zobrazenie na
+                    nástenke</h4>
+                <input class="shadow bg-dark text-light form-control" type="text" id="settings__school__input__websiteArray"
+                    style="margin-left: 8px;" placeholder="Viaceré stránky je potrebné oddeliť medzerou"></input>
             </div>
         </div>
 
         <div class="shadow p-3 mb-5 bg-white rounded" id="container__settings__application">
             <h2>Nastavenia aplikácie</h2>
-            <div class="settings__application__wrapper">
+            <div class="settings__application_identity">
+                <h4 style="margin-top: 16px; margin-left: 8px;">Názov, ikona, jazyk</h4>
+                <input class="shadow bg-dark border-dark text-light form-control" type="text" id="settings__application__input__app_name"
+                    onclick="this.select()" style="margin-left: 8px;" placeholder="Školský informačný system"></input>
+                <div class="dropdown">
+                    <a class="shadow btn btn-secondary dropdown-toggle bg-dark border-dark text-light" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="container__settings__application_dropdown_language"
+                        style="margin-left: 8px;">
+                        Slovenčina
+                    </a>
+                    <div class=" shadow dropdown-menu bg-dark border-dark text-light" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item bg-dark border-dark text-light">Čakali ste viac jazykov?</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings__application__wrapper" style="margin-top: 16px;">
                 <h4 id="color_scheme_header"><i style="margin-right: 8px;"></i>Farebná schéma aplikácie</h4>
                 <div class="dropdown">
                     <a class="shadow btn btn-secondary dropdown-toggle bg-dark border-dark text-light" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="container__settings__application_dropdown_theme">
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="container__settings__application_dropdown_theme"
+                        style="margin-left: 8px;">
                         Tmavá (predvolená)
                     </a>
                     <div class=" shadow dropdown-menu bg-dark border-dark text-light" aria-labelledby="dropdownMenuLink">
@@ -63,9 +88,10 @@
             </div>
         </div>
 
-        <button type="button" onclick="saveSettings();" class="shadow-lg btn btn-success" id="settings__button_save_settings">Uložiť
-            nastavenia a zavrieť</button>
     </div>
+
+    <button type="button" onclick="saveSettings();" class="shadow-lg btn btn-success" id="settings__button_save_settings">Uložiť
+        nastavenia a zavrieť</button>
 
     <script>
         if (typeof module === 'object') {

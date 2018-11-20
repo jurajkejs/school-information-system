@@ -1,3 +1,3 @@
 function saveSettings() {
-    console.log("Settings:","Saving settings...");
+    console.log("Settings:", "Saving settings...");
 }
