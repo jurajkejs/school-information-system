@@ -1,111 +1,86 @@
-<!-- V tomto je bordel, treba to prerobiť nakoniec. -->
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Nastavenia</title>
-
     <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/ui_settings.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div class="wrapper">
 
-        <div class="shadow p-3 mb-5 bg-white rounded" id="container__settings__school">
-            <h2>Nastavenia školy</h2>
-            <div class="container__settings__school_wrapper_edupage_info">
-                <h4 style="margin-top: 8px;"><i style="margin-right: 8px;"></i>Adresa školy na EduPage</h4>
-                <input autofocus class="shadow bg-dark border-dark text-light form-control" type="text" id="settings__school__input__school_server"
-                    onclick="this.select()" style="margin-left: 8px;" placeholder="Napr.: https://spspb.edupage.org"></input>
+    <div id="wrapper">
+        <div class="shadow rounded" id="content_settings">
+            <div class="alert alert-danger" role="alert" style="margin: 16px;">
+                Aplikácia je stále <a href="https://github.com/ttomovcik/school-information-system" class="alert-link">vo
+                    vývoji</a>. Kliknutím na odkaz zobrazíte viac informáciií.
             </div>
-            <div class="container__settings__school_wrapper_webview_pages">
-                <h4 style="margin-top: 16px;"><i style="margin-right: 8px;"></i>Zoznam webstránok na zobrazenie na
-                    nástenke</h4>
-                <input class="shadow bg-dark text-light form-control" type="text" id="settings__school__input__websiteArray"
-                    style="margin-left: 8px;" placeholder="Viaceré stránky je potrebné oddeliť medzerou"></input>
-            </div>
-        </div>
 
-        <div class="shadow p-3 mb-5 bg-white rounded" id="container__settings__application">
-            <h2>Nastavenia aplikácie</h2>
-            <div class="settings__application_identity">
-                <h4 style="margin-top: 16px; margin-left: 8px;">Názov, ikona, jazyk</h4>
-                <input class="shadow bg-dark border-dark text-light form-control" type="text" id="settings__application__input__app_name"
-                    onclick="this.select()" style="margin-left: 8px;" placeholder="Školský informačný system"></input>
-                <div class="dropdown">
-                    <a class="shadow btn btn-secondary dropdown-toggle bg-dark border-dark text-light" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="container__settings__application_dropdown_language"
-                        style="margin-left: 8px;">
+            <h1>Nastavenia</h1>
+            <h2>Škola</h2>
+            <hr>
+            <input class="shadow-sm form-control" id="form_school" type="text" placeholder="Názov školy">
+            <input class="shadow-sm form-control" id="form_school" type="text" placeholder="Adresa stránky školy (edupage)">
+
+            <h2>Aplikácia</h2>
+            <hr>
+            <div class="container_options_lr">
+                <h4>Jazyk aplikácie</h4>
+                <div class="shadow dropdown">
+                    <button class="btn btn-secondary dropdown-toggle bg-light text-dark" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Slovenčina
-                    </a>
-                    <div class=" shadow dropdown-menu bg-dark border-dark text-light" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item bg-dark border-dark text-light">Čakali ste viac jazykov?</a>
+                    </button>
+                    <div class="dropdown-menu shadow bg-light text-dark" aria-labelledby="dropdownMenuButton" style="flex: 1;">
+                        <a class="dropdown-item" href="#">Slovenčina</a>
                     </div>
                 </div>
             </div>
 
-            <div class="settings__application__wrapper" style="margin-top: 16px;">
-                <h4 id="color_scheme_header"><i style="margin-right: 8px;"></i>Farebná schéma aplikácie</h4>
-                <div class="dropdown">
-                    <a class="shadow btn btn-secondary dropdown-toggle bg-dark border-dark text-light" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="container__settings__application_dropdown_theme"
-                        style="margin-left: 8px;">
-                        Tmavá (predvolená)
-                    </a>
-                    <div class=" shadow dropdown-menu bg-dark border-dark text-light" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item bg-dark border-dark text-light"><i class="far fa-moon"></i> Tmavá
-                            (predvolená)</a>
-                        <a class="dropdown-item bg-dark border-dark text-light"><i class="far fa-sun"></i> Svetlá (mení
-                            sa automaticky)</a>
-                        <a class="dropdown-item bg-dark border-dark text-light"><i class="fas fa-tablets"></i> LSD
-                            (Flat UI - farebná)</a>
-                    </div>
-                </div>
+            <div class="container_options_lr">
+                <h4>Heslo</h4>
+                <input class="shadow-sm form-control border-dark" type="text" style="width: 40%" placeholder="Názov školy">
             </div>
         </div>
 
-        <div class="shadow p-3 mb-5 bg-white rounded" id="container__settings__information">
-            <h2>Informácie</h2>
-            <p style="margin-left:8px;">Školský informačný system</p>
-            <p style="margin-left:8px; margin-top: -16px;">0.1.0-indev</p>
-            <p></p>
-            <p style="margin-left:8px; margin-top: -16px;"><i class="fas fa-code"></i> with <i class="fas fa-angry"></i>
-                by <a href="https://github.com/ttomovcik">
-                    Tomáš Tomovčík</a></p>
-            <div class="wrapper__settings__information_buttons">
-                <button type="button" class="shadow btn btn-outline-danger rounded" id="settings__information__button_reset_settings">Reset
-                    nastavení</button>
-                <button type="button" class="shadow btn btn-outline-primary rounded" id="settings__information__button_check_updates">Skontrolovať
+        <div class="sidebar">
+            <div id="sidebar_information">
+                <h1>Informácie</h1>
+                <h6>Školský informačný systém</h6>
+                <h6>{{version}}</h6>
+                <h6><i class="fas fa-code btn-outline-primary"></i> with <i class="fas fa-angry btn-outline-primary"></i>
+                    by <a href="https://github.com/ttomovcik">
+                        Tomáš Tomovčík</a></h6>
+            </div>
+            <button type="button" onclick="saveSettings();" id="btn_save_settings" style="margin: 16px;" class="shadow-lg btn btn-success">Uložiť nastavenia</button>
+            <div id="sidebar_buttons">
+                <button type="button" id="btn_save_my_ass" class="shadow btn btn-outline-primary">Nápoveda</button>
+                <button type="button" id="btn_check_updates" class="shadow btn btn-outline-primary">Skontrolovať
                     aktualizácie</button>
-                <button type="button" class="shadow btn btn-outline-light" id="settings__information__button_help">Nápoveda</button>
+                <button type="button" id="btn_reset_settings" class="shadow btn btn-outline-danger">Obnoviť nastavenia</button>
             </div>
         </div>
-
     </div>
-
-    <button type="button" onclick="saveSettings();" class="shadow-lg btn btn-success" id="settings__button_save_settings">Uložiť
-        nastavenia a zavrieť</button>
-
     <script>
         if (typeof module === 'object') {
             window.module = module;
             module = undefined;
         }
     </script>
-    <script src="settings_renderer.js"></script>
+    <script src="
+                settings_renderer.js"></script>
     <script src="../../../node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="../../../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         if (window.module) module = window.module;
     </script>
+    <!-- It's time to kick gum and chew ass. And I'm all out of ass. -Dick Kickem -->
+    <!-- https://www.youtube.com/watch?v=gnVag2Nwaug -->
 </body>
 
 </html>

@@ -13,8 +13,8 @@ const menuTemplate = [{
                 label: 'Nastavenia',
                 click() {
                     let settingsWindow = new BrowserWindow({
-                        width: 800,
-                        height: 600,
+                        width: 1280,
+                        height: 768,
                     })
                     settingsWindow.on('close', function () {
                         settingsWindow = null

@@ -1,120 +1,101 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
-@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
 
 html,
 body {
-    top: 0;
-    left: 0;
     height: 100%;
-    background-color: #2c3e50 !important;
+    overflow: hidden;
+    background-color: #fafafa;
+}
+
+h1 {
+    margin: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
 }
 
 h2 {
-    color: #fafafa;
-    margin-bottom: 16px;
+    margin-left: 16px;
+    margin-top: 32px;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+h3 {
+    margin-left: 16px;
+    margin-top: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
 }
 
 h4 {
-    color: #ecf0f1;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
 }
 
-.wrapper {
+h6 {
+    margin: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: #757575;
+}
+
+hr {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+#form_school {
+    margin-top: 16px;
+    margin-left: 24px;
+    margin-right: 32px !important;
+    margin-bottom: 16px;
+    width: 95%;
+}
+
+.container_options_lr {
     display: flex;
-    flex-direction: column;
-    height: max-content;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-left: 24px;
+    margin-right: 32px;
+    margin-bottom: 16px;
+}
+
+#wrapper {
+    display: inline-flex;
+    flex-direction: row;
     width: 100%;
-    background-color: #2c3e50 !important;
+    height: 100%;
+}
+
+#content_settings {
+    width: 70%;
+    margin-left: 16px;
+    margin-top: 16px;
     overflow: auto;
 }
 
-#container__settings__school {
-    height: auto;
-    width: auto;
-    margin: 16px;
-    background-color: #34495e !important;
-    color: #ecf0f1;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.container__settings__school_wrapper_edupage_info {
+.sidebar {
     display: flex;
+    height: 100%;
+    width: auto;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-#settings__school__input__school_server,
-#settings__school__input__websiteArray,
-#settings__application__input__app_name {
-    margin-top: 12px;
-    width: 75%;
-    max-width: 70%;
-}
-
-#settings__school__input__school_server,
-#settings__school__input__websiteArray,
-#settings__application__input__app_name:hover {
-    border-color: #3498db !important;
-}
-
-#settings__school__input__school_server,
-#settings__school__input__websiteArray,
-#settings__application__input__app_name:focus {
-    border-color: #3498db !important;
-}
-
-#settings__school__input__school_server,
-#settings__school__input__websiteArray,
-#settings__application__input__app_name:hover:focus {
-    border-color: #3498db !important;
-}
-
-#container__settings__application_dropdown_theme {
-    font-family: 'Roboto', sans-serif !important;
-}
-
-#container__settings__application {
+#sidebar_information{
     height: auto;
-    width: auto;
+}
+
+#sidebar_buttons{
     margin: 16px;
-    margin-top: -32px;
-    background-color: #34495e !important;
-    color: #ecf0f1 !important;
 }
 
-.settings__application__wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+#btn_check_updates{
+    margin-bottom: 16px;
 }
 
-#container__settings__information {
-    height: auto;
-    width: auto;
-    margin: 16px;
-    margin-top: -32px;
-    overflow: hidden;
-    background-color: #34495e !important;
-    color: #ecf0f1 !important;
-}
-
-.wrapper__settings__information_buttons {
-    display: flex;
-    flex-direction: row;
-}
-
-#settings__information__button_check_updates {
-    margin-left: 16px;
-}
-
-#settings__information__button_help {
-    margin-left: 16px;
-}
-
-#settings__button_save_settings {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 16px;
+#btn_save_my_ass{
+    margin-bottom: 16px;
 }
