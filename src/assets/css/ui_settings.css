@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
 html,
 body {
@@ -7,95 +8,75 @@ body {
     background-color: #fafafa;
 }
 
-h1 {
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.tab_content_wrapper {
+    display: flex;
+    flex-flow: wrap;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.card {
+    margin: 8px;
+    display: inline-block;
+}
+
+.generic_l_title_r_setting_wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.l_title_header{
     margin: 16px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-}
-
-h2 {
-    margin-left: 16px;
-    margin-top: 32px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-}
-
-h3 {
-    margin-left: 16px;
-    margin-top: 16px;
-    font-family: 'Montserrat', sans-serif;
+    color: #212121;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
 }
 
+.r_setting_form{
+    max-width: 40%;
+    margin: 16px;
+}
+
+#v-pills-tabs {
+    margin: 16px;
+    height: 100%;
+    min-width: 20%;
+}
+
+#v-pills-tabContent {
+    height: auto;
+    width: 100%;
+    overflow: auto;
+}
+
+.tab-content h1,
 h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-}
-
-h6 {
-    margin: 16px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    color: #757575;
+    display: flex;
+    justify-content: center;
 }
 
 hr {
     margin-left: 16px;
     margin-right: 16px;
+    color: #bdbdbd;
 }
 
-#form_school {
-    margin-top: 16px;
-    margin-left: 24px;
-    margin-right: 32px !important;
-    margin-bottom: 16px;
-    width: 95%;
+h1,
+h2 {
+    margin: 12px;
+    font-family: 'Ubuntu', sans-serif;
+    color: #212121;
 }
 
-.container_options_lr {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 16px;
-    margin-left: 24px;
-    margin-right: 32px;
-    margin-bottom: 16px;
-}
-
-#wrapper {
-    display: inline-flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-}
-
-#content_settings {
-    width: 70%;
-    margin-left: 16px;
-    margin-top: 16px;
-    overflow: auto;
-}
-
-.sidebar {
-    display: flex;
-    height: 100%;
-    width: auto;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-#sidebar_information{
-    height: auto;
-}
-
-#sidebar_buttons{
-    margin: 16px;
-}
-
-#btn_check_updates{
-    margin-bottom: 16px;
-}
-
-#btn_save_my_ass{
-    margin-bottom: 16px;
+h4 {
+    color: #757575
 }
