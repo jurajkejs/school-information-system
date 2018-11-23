@@ -3,8 +3,8 @@
 
 <head>
     <title>Nastavenia</title>
-    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/ui_settings.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -90,15 +90,15 @@
                 <h4>Údaje o škole a žiakoch</h4>
                 <hr>
                 <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Názov školy</h3>
+                    <h3 class="l_title_header"><i class="fas fa-hashtag"></i> Názov školy</h3>
                     <input class="form-control r_setting_form" type="text" placeholder="Napr. Haha, škola">
                 </div>
                 <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Edupage server</h3>
+                    <h3 class="l_title_header"><i class="fas fa-server"></i> Edupage server</h3>
                     <input class="form-control r_setting_form" type="text" placeholder="Napr. https://spspb.edupage.org">
                 </div>
                 <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Dodatočné stránky</h3>
+                    <h3 class="l_title_header"><i class="fas fa-server"></i> Dodatočné stránky</h3>
                     <textarea class="form-control r_setting_form" type="text" placeholder="Stránky na zobrazenie. Oddeľujte čiarkou na konci adresy"></textarea>
                 </div>
             </div>
@@ -107,18 +107,62 @@
                 <h1>Aplikácia</h1>
                 <h4>Zmeniť správanie aplikácie</h4>
                 <hr>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header"><i class="fas fa-language"></i> Jazyk</h3>
+                    <input class="form-control r_setting_form" type="text" placeholder="Napr. Haha, škola">
+                </div>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header"><i class="fas fa-tint"></i> Vzhľad</h3>
+                    <input class="form-control r_setting_form" type="text" placeholder="Napr. Haha, škola">
+                </div>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header"><i class="fas fa-key"></i> Heslo</h3>
+                    <input class="form-control r_setting_form" type="text" placeholder="Napr. Haha, škola">
+                </div>
             </div>
             <!--############################################################################################################################-->
             <div class="tab-pane fade" id="v-pills-system" role="tabpanel" aria-labelledby="v-pills-system-tab">
                 <h1>Systém</h1>
                 <h4>Úprava nastavení systému, na ktorom je aplikácia spustená</h4>
                 <hr>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header">Napájanie</h3>
+                    
+                </div>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header">Terminál</h3>
+                   
+                </div>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header">Správca aktualizácii</h3>
+                    
+                </div>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header">VNC server</h3>
+                    
+                </div>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header">SSHd</h3>
+                    
+                </div>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header">Napájanie</h3>
+                    
+                </div>
             </div>
             <!--############################################################################################################################-->
             <div class="tab-pane fade" id="v-pills-problem-fixing" role="tabpanel" aria-labelledby="v-pills-problem-fixing-tab">
                 <h1>Riešenie problémov</h1>
                 <h4>¯\_(ツ)_/¯ Sh*t happens, you know.</h4>
                 <hr>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header">Pripojenie k internetu</h3>
+                    
+                </div>
+                <div class="generic_l_title_r_setting_wrapper">
+                    <h3 class="l_title_header">Chýbajúce údaje na nástenke</h3>
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -129,10 +173,10 @@
             module = undefined;
         }
     </script>
-    <script src="settings_renderer.js"></script>
-    <script src="../../../node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="../../../node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         if (window.module) module = window.module;
     </script>
