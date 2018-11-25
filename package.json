@@ -2,9 +2,10 @@
   "name": "school-information-system",
   "version": "0.1.0-indev",
   "description": "Nástenka s informáciami pre žiakov",
-  "main": "src/app.js",
+  "main": "./main.js",
   "scripts": {
-    "oof": "echo \"God fucking dammit.\" && exit 0"
+    "oof": "echo \"God fucking dammit.\" && exit 0",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",

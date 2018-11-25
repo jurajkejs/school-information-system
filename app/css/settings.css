@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:100,200,300,400,500,600,700,800,900');
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
 html,
 body {
@@ -62,6 +61,7 @@ body {
 h4 {
     display: flex;
     justify-content: center;
+    color: #
 }
 
 hr {
@@ -75,8 +75,4 @@ h2 {
     margin: 12px;
     font-family: 'Ubuntu', sans-serif;
     color: #212121;
-}
-
-h4 {
-    color: #757575
 }

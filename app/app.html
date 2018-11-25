@@ -2,28 +2,21 @@
 <html>
 
 <head>
-    <!-- Meta info -->
+    <title>[WIP] Školský informačný systém</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Title -->
-    <title>[WIP] Školský informačný systém</title>
-
-    <!-- Local imports -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-    <!-- Remote imports -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
 </head>
 
-<body onload="startTime();">
+<body>
     <!-- Main UI -->
     <div class="wrapper">
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar_main">
             <div class="shadow p-3 mb-5 bg-white rounded" id="container__date_time">
                 <h3 id="date_time"></h3>
             </div>
@@ -32,10 +25,6 @@
                     data-textcolor="#212121">Považská Bystrica</a>
             </div>
             <div class="shadow p-3 mb-5 bg-white rounded" id="container__class_data">
-                <h4>Placeholder (trieda)</h4>
-                <p>Placeholder (hodina)</p>
-                <h4>Placeholder (trieda)</h4>
-                <p>Placeholder (hodina)</p>
                 <h4>Placeholder (trieda)</h4>
                 <p>Placeholder (hodina)</p>
                 <h4>Placeholder (trieda)</h4>
@@ -53,7 +42,7 @@
 
     <!-- Scripts -->
     <!-- Script / weather data -->
-    <script>
+    <script async>
         ! function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (!d.getElementById(id)) {
@@ -65,7 +54,7 @@
         }(document, 'script', 'weatherwidget-io-js');
     </script>
     <!-- Script / renderer -->
-    <script src="js/main.js"></script>
+    <script async src="js/app.js" onload="startTime();"></script>
 </body>
 
 </html>

@@ -3,165 +3,61 @@
 
 <head>
     <title>Nastavenia</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/settings.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 </head>
 
 <body>
     <div class="wrapper">
         <div class="nav flex-column nav-pills" id="v-pills-tabs" role="tablist" aria-orientation="vertical">
             <input disabled class="form-control" type="text" placeholder="Hľadať nastavenia" style="margin-bottom: 15px; margin-top: 4px;">
-            <!--############################################################################################################################-->
             <a class="nav-link active" id="v-pills-overview-tab" data-toggle="pill" href="#v-pills-overview" role="tab"
                 aria-controls="v-pills-overview" aria-selected="true"><i class="fas fa-th"></i> Prehľad</a>
-            <!--############################################################################################################################-->
             <a class="nav-link" id="v-pills-school-tab" data-toggle="pill" href="#v-pills-school" role="tab"
                 aria-controls="v-pills-school" aria-selected="false"><i class="fas fa-school"></i> Škola</a>
-            <!--############################################################################################################################-->
             <a class="nav-link" id="v-pills-application-tab" data-toggle="pill" href="#v-pills-application" role="tab"
                 aria-controls="v-pills-application" aria-selected="false"><i class="fas fa-cog"></i> Aplikácia</a>
-            <!--############################################################################################################################-->
-            <a class="nav-link" id="v-pills-system-tab" data-toggle="pill" href="#v-pills-system" role="tab"
-                aria-controls="v-pills-system" aria-selected="false"><i class="fas fa-microchip"></i> Systém</a>
-            <!--############################################################################################################################-->
-            <a class="nav-link" id="v-pills-problem-fixing-tab" data-toggle="pill" href="#v-pills-problem-fixing" role="tab"
-                aria-controls="v-pills-problem-fixing" aria-selected="false"><i class="fas fa-exclamation-circle"></i>
-                Riešenie problémov</a>
             <hr>
-
+            <button type="button" class="btn btn-outline-success"><i class="fas fa-check"></i> Uložiť nastavenia</button>
         </div>
 
         <div class="tab-content shadow" id="v-pills-tabContent">
-            <!--############################################################################################################################-->
+
             <div class="tab-pane fade show active" id="v-pills-overview" role="tabpanel" aria-labelledby="v-pills-overview-tab">
                 <h1>Prehľad</h1>
-                <h4>Všetky informácie o aktuálnych nastaveniach</h4>
                 <hr>
-                <div class="tab_content_wrapper">
-                    <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">Názov školy</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Škola</h6>
-                            <p class="card-text">Stredná priemyselná škola Považská Bystrica</p>
-                            <a href="#" class="card-link">Zmeniť názov</a>
-                        </div>
-                    </div>
-                    <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">Dodatočné stránky</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Škola</h6>
-                            <p class="card-text">Nie sú zadefinované žiadne dodatočné stránky</p>
-                            <a href="#" class="card-link">Zobraziť stránky</a>
-                        </div>
-                    </div>
-                    <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">Stav aplikácie</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Aplikácia</h6>
-                            <p class="card-text">Použitá svetlá téma, Slovenský jazyk, bez hesla</p>
-                            <a href="#" class="card-link">Prejsť na nastavenia</a>
-                        </div>
-                    </div>
-                    <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body alert-warning">
-                            <h5 class="card-title font-weight-bold">Aktualizácie</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Systém</h6>
-                            <p class="card-text">{{packages_count}} je pripravených na inštaláciu</p>
-                            <a href="#" class="card-link">Spustiť aktualizáciu</a>
-                        </div>
-                    </div>
-                    <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">O systéme</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Systém</h6>
-                            <p class="card-text">Ubuntu 18.04 "Bionic Beaver", Linux Kernel 4.18.xx</p>
-                            <a href="#" class="card-link">Podrobnosti</a>
-                        </div>
-                    </div>
-                </div>
+                <h1>🦄</h1>
+                <h4>Na tomto sa stále pracuje</h4>
             </div>
-            <!--############################################################################################################################-->
+
             <div class="tab-pane fade" id="v-pills-school" role="tabpanel" aria-labelledby="v-pills-school-tab">
                 <h1>Škola</h1>
-                <h4>Údaje o škole a žiakoch</h4>
                 <hr>
                 <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header"><i class="fas fa-hashtag"></i> Názov školy</h3>
+                    <h3 class="l_title_header">Názov školy</h3>
                     <input class="form-control r_setting_form" type="text" placeholder="Napr. Haha, škola">
                 </div>
                 <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header"><i class="fas fa-server"></i> Edupage server</h3>
-                    <input class="form-control r_setting_form" type="text" placeholder="Napr. https://spspb.edupage.org">
+                    <h3 class="l_title_header">Edupage server</h3>
+                    <input class="form-control r_setting_form" type="text" id="edupage_server" placeholder="Napr. https://spspb.edupage.org">
                 </div>
                 <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header"><i class="fas fa-server"></i> Dodatočné stránky</h3>
-                    <textarea class="form-control r_setting_form" type="text" placeholder="Stránky na zobrazenie. Oddeľujte čiarkou na konci adresy"></textarea>
+                    <h3 class="l_title_header">Dodatočné stránky</h3>
+                    <textarea class="form-control r_setting_form" type="text" id="additional_pages" placeholder="Stránky na zobrazenie. Oddeľujte čiarkou na konci adresy"></textarea>
                 </div>
             </div>
-            <!--############################################################################################################################-->
+
             <div class="tab-pane fade" id="v-pills-application" role="tabpanel" aria-labelledby="v-pills-application-tab">
                 <h1>Aplikácia</h1>
-                <h4>Zmeniť správanie aplikácie</h4>
                 <hr>
                 <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header"><i class="fas fa-language"></i> Jazyk</h3>
-                    <input class="form-control r_setting_form" type="text" placeholder="Napr. Haha, škola">
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header"><i class="fas fa-tint"></i> Vzhľad</h3>
-                    <input class="form-control r_setting_form" type="text" placeholder="Napr. Haha, škola">
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header"><i class="fas fa-key"></i> Heslo</h3>
-                    <input class="form-control r_setting_form" type="text" placeholder="Napr. Haha, škola">
-                </div>
-            </div>
-            <!--############################################################################################################################-->
-            <div class="tab-pane fade" id="v-pills-system" role="tabpanel" aria-labelledby="v-pills-system-tab">
-                <h1>Systém</h1>
-                <h4>Úprava nastavení systému, na ktorom je aplikácia spustená</h4>
-                <hr>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Napájanie</h3>
-                    
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Terminál</h3>
-                   
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Správca aktualizácii</h3>
-                    
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">VNC server</h3>
-                    
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">SSHd</h3>
-                    
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Napájanie</h3>
-                    
-                </div>
-            </div>
-            <!--############################################################################################################################-->
-            <div class="tab-pane fade" id="v-pills-problem-fixing" role="tabpanel" aria-labelledby="v-pills-problem-fixing-tab">
-                <h1>Riešenie problémov</h1>
-                <h4>¯\_(ツ)_/¯ Sh*t happens, you know.</h4>
-                <hr>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Pripojenie k internetu</h3>
-                    
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Chýbajúce údaje na nástenke</h3>
-                    
+                    <h3 class="l_title_header">Heslo</h3>
+                    <input class="form-control r_setting_form" id="application_password1" type="password" placeholder="Prístupové heslo">
+                    <input class="form-control r_setting_form" id="application_password2" type="password" placeholder="Prístupové heslo (opäť)">
                 </div>
             </div>
         </div>
@@ -174,9 +70,9 @@
         }
     </script>
     <script src="js/settings.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script async src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script async src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script async src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         if (window.module) module = window.module;
     </script>

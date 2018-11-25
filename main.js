@@ -19,7 +19,7 @@ const menuTemplate = [{
                     settingsWindow.on('close', function () {
                         settingsWindow = null
                     })
-                    settingsWindow.loadURL('file:///src/ui/settings/settings.html')
+                    settingsWindow.loadURL('file:///app/settings.html')
                     settingsWindow.show();
                 }
             },
@@ -62,7 +62,7 @@ function createWindow() {
             allowRunningInsecureContent: true
         }
     })
-    win.loadURL('file:///src/app.html')
+    win.loadURL('file:///app/app.html')
     win.on('closed', () => {
         win = null
         app.quit();
