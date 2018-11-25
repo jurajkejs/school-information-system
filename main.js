@@ -20,6 +20,7 @@ const menuTemplate = [{
                         settingsWindow = null
                     })
                     settingsWindow.loadURL('file:///app/settings.html')
+                    settingsWindow.webContents.openDevTools();
                     settingsWindow.show();
                 }
             },
@@ -62,6 +63,7 @@ function createWindow() {
             allowRunningInsecureContent: true
         }
     })
+    win.webContents.openDevTools();
     win.loadURL('file:///app/app.html')
     win.on('closed', () => {
         win = null

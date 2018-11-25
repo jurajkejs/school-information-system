@@ -22,7 +22,7 @@
             <a class="nav-link" id="v-pills-application-tab" data-toggle="pill" href="#v-pills-application" role="tab"
                 aria-controls="v-pills-application" aria-selected="false"><i class="fas fa-cog"></i> Aplikácia</a>
             <hr>
-            <button type="button" class="btn btn-outline-success"><i class="fas fa-check"></i> Uložiť nastavenia</button>
+            <button type="button" onclick="saveSettings();" class="btn btn-outline-success"><i class="fas fa-check"></i> Uložiť nastavenia</button>
         </div>
 
         <div class="tab-content shadow" id="v-pills-tabContent">
@@ -39,15 +39,15 @@
                 <hr>
                 <div class="generic_l_title_r_setting_wrapper">
                     <h3 class="l_title_header">Názov školy</h3>
-                    <input class="form-control r_setting_form" type="text" placeholder="Napr. Haha, škola">
+                    <input class="form-control r_setting_form" type="text" id="input_school_name" placeholder="Napr. Haha, škola">
                 </div>
                 <div class="generic_l_title_r_setting_wrapper">
                     <h3 class="l_title_header">Edupage server</h3>
-                    <input class="form-control r_setting_form" type="text" id="edupage_server" placeholder="Napr. https://spspb.edupage.org">
+                    <input class="form-control r_setting_form" type="text" id="input_edupage_server" placeholder="Napr. https://spspb.edupage.org">
                 </div>
                 <div class="generic_l_title_r_setting_wrapper">
                     <h3 class="l_title_header">Dodatočné stránky</h3>
-                    <textarea class="form-control r_setting_form" type="text" id="additional_pages" placeholder="Stránky na zobrazenie. Oddeľujte čiarkou na konci adresy"></textarea>
+                    <textarea class="form-control r_setting_form" type="text" id="input_additional_pages" placeholder="Stránky na zobrazenie. Oddeľujte čiarkou na konci adresy"></textarea>
                 </div>
             </div>
 
