@@ -1,12 +1,8 @@
-const {
-    app,
-    BrowserWindow,
-    Menu,
-} = require('electron');
+const {app, BrowserWindow, Menu,} = require('electron');
 const Store = require('electron-store');
 const store = new Store();
 
-var applicationHeader = store.get('schoolName');
+var applicationTitle = store.get('schoolName');
 
 let win
 
@@ -68,7 +64,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1280,
         height: 720,
-        title: applicationHeader,
+        title: applicationTitle,
         webPreferences: {
             webSecurity: false,
             allowRunningInsecureContent: true
