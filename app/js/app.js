@@ -7,6 +7,8 @@ Treba zmeniť async funkciu 'switchHTML' z html súborov (alebo odkazov) na nov�
         3. Po zmene adries v nastaveniach -> regex na websiteArray a prepísať hodnoty, a uložiť do config
         
         tags: webview, html, array, help_me */
+console.log('[App::Debug] Wake up, Neo...');
+
 const Store = require('electron-store');
 const store = new Store();
 

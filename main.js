@@ -79,7 +79,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1280,
         height: 720,
-        title: applicationTitle,
+        title: applicationTitle + ' (Školský informačný systém)',
         webPreferences: {
             webSecurity: false,
             allowRunningInsecureContent: true
