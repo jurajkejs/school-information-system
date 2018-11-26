@@ -2,8 +2,6 @@ const {app, BrowserWindow, Menu,} = require('electron');
 const Store = require('electron-store');
 const store = new Store();
 
-var applicationTitle = store.get('schoolName');
-
 let win
 
 const menuTemplate = [{
@@ -75,6 +73,7 @@ const menu = Menu.buildFromTemplate(menuTemplate)
 Menu.setApplicationMenu(menu)
 
 function createWindow() {
+    var applicationTitle = store.get('schoolName');
     win = new BrowserWindow({
         width: 1280,
         height: 720,
