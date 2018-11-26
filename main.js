@@ -18,7 +18,7 @@ const menuTemplate = [{
                     settingsWindow.on('close', function () {
                         settingsWindow = null
                     })
-                    settingsWindow.loadURL('file:///app/settings.html')
+                    settingsWindow.loadURL('file://' + __dirname + '/app/settings.html')
                     settingsWindow.webContents.openDevTools();
                     settingsWindow.show();
                 }
@@ -65,7 +65,6 @@ const menuTemplate = [{
                     settingsWindow = null
                 })
                 settingsWindow.loadURL('file://' + __dirname + '/app/firstTimeRun.html')
-                settingsWindow.webContents.openDevTools();
                 settingsWindow.show();
             }
         },]
@@ -85,7 +84,6 @@ function createWindow() {
             allowRunningInsecureContent: true
         }
     })
-    win.webContents.openDevTools();
     win.loadURL('file://' + __dirname + '/app/app.html')
     win.on('closed', () => {
         win = null
