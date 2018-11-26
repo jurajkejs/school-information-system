@@ -53,7 +53,22 @@ const menuTemplate = [{
         submenu: [{
             label: 'Nápoveda',
             click() { require('electron').shell.openExternal('https://github.com/ttomovcik/school-information-system/wiki') }
-        }]
+        },
+        {
+            label: 'Prvé spustenie',
+            click() {
+                let settingsWindow = new BrowserWindow({
+                    width: 800,
+                    height: 600,
+                })
+                settingsWindow.on('close', function () {
+                    settingsWindow = null
+                })
+                settingsWindow.loadURL('file:///app/firstTimeRun.html')
+                settingsWindow.webContents.openDevTools();
+                settingsWindow.show();
+            }
+        },]
     }
 ]
 
