@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <title>[WIP] Školský informačný systém</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,12 +35,22 @@
             </div>
         </div>
         <div class="shadow p-3 mb-5 bg-white rounded" id="content_main">
-            <webview id="webview" src="http://www.spspb.edupage.org/substitution"></webview>
+            <div id="appNeedsConfigurationError" class="webview_main">
+                <h1>🦄</h1>
+                <h4>Nie je nastavený predvolený server. oof.</h4>
+                <h6>Prejdite do Nastavení -> Škola -> Edupage server</h6>
+            </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <!-- Script / weather data -->
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script async src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script async src="js/app.js" onload="startTime();"></script>
     <script async>
         ! function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -53,8 +62,9 @@
             }
         }(document, 'script', 'weatherwidget-io-js');
     </script>
-    <!-- Script / renderer -->
-    <script async src="js/app.js" onload="startTime();"></script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
 </body>
 
 </html>

@@ -2,8 +2,11 @@ const {
     app,
     BrowserWindow,
     Menu,
-} = require('electron')
+} = require('electron');
+const Store = require('electron-store');
+const store = new Store();
 
+var applicationHeader = store.get('schoolName');
 
 let win
 
@@ -32,6 +35,13 @@ const menuTemplate = [{
     {
         label: 'Zobrazenie',
         submenu: [
+            {
+                label: 'Aktualizovať obsah',
+                click(){
+                    console.log('[Main::UI] Refreshing webview')
+                }
+            },
+            {type: 'separator'},
             {role: 'reload'},
             {role: 'forcereload'},
             {type: 'separator'},
@@ -58,6 +68,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1280,
         height: 720,
+        title: applicationHeader,
         webPreferences: {
             webSecurity: false,
             allowRunningInsecureContent: true

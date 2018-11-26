@@ -83,9 +83,9 @@ p{
     background-color: #fafafa !important;
 }
 
-#webview{
+#webview_main{
+    display: flex;
     margin: -16px;
-    margin-bottom: -32px;
     height: 100%;
     width: auto;
 }

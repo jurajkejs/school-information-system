@@ -7,6 +7,12 @@ Treba zmeniť async funkciu 'switchHTML' z html súborov (alebo odkazov) na nov�
         3. Po zmene adries v nastaveniach -> regex na websiteArray a prepísať hodnoty, a uložiť do config
         
         tags: webview, html, array, help_me */
+const Store = require('electron-store');
+const store = new Store();
+
+var webview_default = document.querySelector('webview_main');
+var edupageServerAddress = store.get('edupageServerAddress');
+var webview_updated = '<webview id="webview" src="'+edupageServerAddress+'"></webview>';
 
 function startTime() {
     var today = new Date();
@@ -28,4 +34,8 @@ function checkTime(i) {
         i = "0" + i
     };
     return i;
+}
+
+function replaceWebview() {
+    $(webview_default).replaceWith(webview_updated);
 }
