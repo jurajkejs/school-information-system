@@ -64,7 +64,7 @@ const menuTemplate = [{
                 settingsWindow.on('close', function () {
                     settingsWindow = null
                 })
-                settingsWindow.loadURL('file:///app/firstTimeRun.html')
+                settingsWindow.loadURL('file://' + __dirname + '/app/firstTimeRun.html')
                 settingsWindow.webContents.openDevTools();
                 settingsWindow.show();
             }
@@ -86,7 +86,7 @@ function createWindow() {
         }
     })
     win.webContents.openDevTools();
-    win.loadURL('file:///app/app.html')
+    win.loadURL('file://' + __dirname + '/app/app.html')
     win.on('closed', () => {
         win = null
         app.quit();
