@@ -10,7 +10,7 @@ const menuTemplate = [{
                 label: 'Nastavenia',
                 click() {
                     let settingsWindow = new BrowserWindow({
-                        width: 1280,
+                        width: 960,
                         height: 768,
                     })
                     settingsWindow.on('close', function () {
@@ -32,7 +32,7 @@ const menuTemplate = [{
             {
                 label: 'Aktualizovať obsah',
                 click(){
-                    console.log('[Main::UI] Refreshing webview')
+                    console.log('[MainUI::callFromMainScript] Refreshing webview')
                 }
             },
             {type: 'separator'},
@@ -73,6 +73,13 @@ const menu = Menu.buildFromTemplate(menuTemplate)
 Menu.setApplicationMenu(menu)
 
 function createWindow() {
+    if (store.get('echoolName') === '*'){
+        console.log('[MainUI::callFromMainScript] Skipping "applicationTitle", already set.')
+    }
+    else{
+        store.set('schoolName',"Školský informačný systém");
+    }
+
     var applicationTitle = store.get('schoolName');
     win = new BrowserWindow({
         width: 1280,
@@ -83,7 +90,8 @@ function createWindow() {
             allowRunningInsecureContent: true
         }
     })
-    win.loadURL('file://' + __dirname + '/app/app.html')
+    win.webContents.openDevTools();
+    win.loadURL('file://' + __dirname + '/app/app2.html')
     win.on('closed', () => {
         win = null
         app.quit();

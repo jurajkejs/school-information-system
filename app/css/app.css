@@ -1,0 +1,55 @@
+body,
+html {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #fafafa;
+}
+
+#sidebar {
+    position: relative;
+    height: 100%;
+    width: 25%;
+    overflow: auto;
+}
+
+.card {
+    margin: 8px;
+}
+
+#card_weather {
+    max-height: 256px !important;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#content {
+    height: 100%;
+    width: 75%;
+    flex: 1;
+}
+
+#webview {
+    width: 100%;
+    min-height: 100% !important;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+#non-prod-mode {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 16px;
+}
