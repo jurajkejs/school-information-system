@@ -1,4 +1,8 @@
-const {app, BrowserWindow, Menu,} = require('electron');
+const {
+    app,
+    BrowserWindow,
+    Menu,
+} = require('electron');
 const Store = require('electron-store');
 const store = new Store();
 
@@ -21,51 +25,77 @@ const menuTemplate = [{
                     settingsWindow.show();
                 }
             },
-            {type: 'separator'}, 
-            {role: 'minimize'},
-            {role: 'close'}
+            {
+                type: 'separator'
+            },
+            {
+                role: 'minimize'
+            },
+            {
+                role: 'close'
+            }
         ]
     },
     {
         label: 'Zobrazenie',
-        submenu: [
-            {
+        submenu: [{
                 label: 'Aktualizovať obsah',
-                click(){
+                click() {
                     console.log('[MainUI::callFromMainScript] Refreshing webview')
                 }
             },
-            {type: 'separator'},
-            {role: 'reload'},
-            {role: 'forcereload'},
-            {type: 'separator'},
-            {role: 'resetzoom'},
-            {role: 'zoomin'},
-            {role: 'zoomout'},
-            {type: 'separator'},
-            {role: 'togglefullscreen'}
+            {
+                type: 'separator'
+            },
+            {
+                role: 'reload'
+            },
+            {
+                role: 'forcereload'
+            },
+            {
+                type: 'separator'
+            },
+            {
+                role: 'resetzoom'
+            },
+            {
+                role: 'zoomin'
+            },
+            {
+                role: 'zoomout'
+            },
+            {
+                type: 'separator'
+            },
+            {
+                role: 'togglefullscreen'
+            }
         ]
     },
     {
         role: 'help',
         submenu: [{
-            label: 'Nápoveda',
-            click() { require('electron').shell.openExternal('https://github.com/ttomovcik/school-information-system/wiki') }
-        },
-        {
-            label: 'Prvé spustenie',
-            click() {
-                let settingsWindow = new BrowserWindow({
-                    width: 800,
-                    height: 600,
-                })
-                settingsWindow.on('close', function () {
-                    settingsWindow = null
-                })
-                settingsWindow.loadURL('file://' + __dirname + '/app/firstTimeRun.html')
-                settingsWindow.show();
-            }
-        },]
+                label: 'Nápoveda',
+                click() {
+                    require('electron').shell.openExternal('https://github.com/ttomovcik/school-information-system/wiki')
+                }
+            },
+            {
+                label: 'Prvé spustenie',
+                click() {
+                    let settingsWindow = new BrowserWindow({
+                        width: 800,
+                        height: 600,
+                    })
+                    settingsWindow.on('close', function () {
+                        settingsWindow = null
+                    })
+                    settingsWindow.loadURL('file://' + __dirname + '/app/firstTimeRun.html')
+                    settingsWindow.show();
+                }
+            },
+        ]
     }
 ]
 
@@ -73,11 +103,10 @@ const menu = Menu.buildFromTemplate(menuTemplate)
 Menu.setApplicationMenu(menu)
 
 function createWindow() {
-    if (store.get('echoolName') === '*'){
+    if (store.get('echoolName') === '*') {
         console.log('[MainUI::callFromMainScript] Skipping "applicationTitle", already set.')
-    }
-    else{
-        store.set('schoolName',"Školský informačný systém");
+    } else {
+        store.set('schoolName', "Školský informačný systém");
     }
 
     var applicationTitle = store.get('schoolName');

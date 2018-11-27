@@ -21,7 +21,3 @@ function checkTime(i) {
     };
     return i;
 }
-
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
