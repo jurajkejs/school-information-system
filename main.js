@@ -15,7 +15,7 @@ const menuTemplate = [{
                 label: 'Nastavenia',
                 click() {
                     let settingsWindow = new BrowserWindow({
-                        width: 960,
+                        width: 1024,
                         height: 768,
                     })
                     settingsWindow.on('close', function () {
@@ -109,6 +109,20 @@ const menuTemplate = [{
     }
 ]
 
+var veryImportantStringArray = [
+    "No, I won't fix you printer!",
+    'Haha, yes. Very funny',
+    'No unicorns were hurt during development',
+    'Please help me.',
+    'I saw it on the internet. That should be easy to do!',
+    'Aaaaaaaaaaaaaaaaaaaa (.com)',
+    'Never gonna give you up',
+    'Remove child from parent with fork',
+    'I make computer do beep boop',
+    'Thanks StackOverflow for helping me, and Nox for feedback on UI'
+]
+var motdInTitle = veryImportantStringArray[Math.floor(Math.random()*veryImportantStringArray.length)];
+
 const menu = Menu.buildFromTemplate(menuTemplate)
 Menu.setApplicationMenu(menu)
 
@@ -117,7 +131,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1280,
         height: 720,
-        title: applicationTitle + ' (Školský informačný systém)',
+        title: applicationTitle + ' (Školský informačný systém) ['+motdInTitle+']',
         webPreferences: {
             webSecurity: false,
             allowRunningInsecureContent: true
