@@ -5,6 +5,7 @@ const {
 } = require('electron');
 const Store = require('electron-store');
 const store = new Store();
+const runningInDevMode = require('electron-is-dev');
 
 let win
 
@@ -21,8 +22,12 @@ const menuTemplate = [{
                         settingsWindow = null
                     })
                     settingsWindow.loadURL('file://' + __dirname + '/app/settings.html')
-                    settingsWindow.webContents.openDevTools();
                     settingsWindow.show();
+                    if (runningInDevMode) {
+                        settingsWindow.webContents.openDevTools();
+                    } else {
+                        console.log('[App::Prod] Disabling devTools');
+                    }
                 }
             },
             {
@@ -84,15 +89,20 @@ const menuTemplate = [{
             {
                 label: 'Prvé spustenie',
                 click() {
-                    let settingsWindow = new BrowserWindow({
+                    let firstRunWindow = new BrowserWindow({
                         width: 800,
                         height: 600,
                     })
-                    settingsWindow.on('close', function () {
-                        settingsWindow = null
+                    firstRunWindow.on('close', function () {
+                        firstRunWindow = null
                     })
-                    settingsWindow.loadURL('file://' + __dirname + '/app/firstTimeRun.html')
-                    settingsWindow.show();
+                    firstRunWindow.loadURL('file://' + __dirname + '/app/firstTimeRun.html')
+                    firstRunWindow.show();
+                    if (runningInDevMode) {
+                        win.webContents.openDevTools();
+                    } else {
+                        console.log('[App::Prod] Disabling devTools');
+                    }
                 }
             },
         ]
@@ -103,12 +113,6 @@ const menu = Menu.buildFromTemplate(menuTemplate)
 Menu.setApplicationMenu(menu)
 
 function createWindow() {
-    if (store.get('echoolName') === '*') {
-        console.log('[MainUI::callFromMainScript] Skipping "applicationTitle", already set.')
-    } else {
-        store.set('schoolName', "Školský informačný systém");
-    }
-
     var applicationTitle = store.get('schoolName');
     win = new BrowserWindow({
         width: 1280,
@@ -119,8 +123,12 @@ function createWindow() {
             allowRunningInsecureContent: true
         }
     })
-    win.webContents.openDevTools();
-    win.loadURL('file://' + __dirname + '/app/app2.html')
+    if (runningInDevMode) {
+        win.webContents.openDevTools();
+    } else {
+        console.log('[App::Prod] Disabling devTools');
+    }
+    win.loadURL('file://' + __dirname + '/app/app.html')
     win.on('closed', () => {
         win = null
         app.quit();

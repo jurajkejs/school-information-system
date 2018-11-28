@@ -5,67 +5,65 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/app.css" />
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
 </head>
 
-<body>
-    <!-- Main UI -->
-    <div class="wrapper">
-        <div class="sidebar" id="sidebar_main">
-            <div class="shadow p-3 mb-5 bg-white rounded" id="container__date_time">
-                <h3 id="date_time"></h3>
+<body onload="startTime();">
+    <div class="wrapper" onload="startTime();">
+        <!-- Bočný panel -->
+        <div class="shadow" id="sidebar">
+            <!-- Dátum a čas (bočný panel, karta 1) -->
+            <div class="card text-center">
+                <div class="card-body shadow">
+                    <h3 id="dateTime">TIME IS RELATIVE</h3>
+                </div>
             </div>
-            <div class="shadow p-3 mb-5 bg-white rounded" id="container__weather">
-                <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/" data-label_1="Považská Bystrica"
-                    data-textcolor="#212121">Považská Bystrica</a>
+            <!-- Počasie (bočný panel, karta 2) -->
+            <div class="card text-center shadow">
+                <div class="card-body" id="card_weather">
+                    <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/"
+                        data-label_1="Považská Bystrica" data-textcolor="#212121">Považská Bystrica </a>
+                </div>
             </div>
-            <div class="shadow p-3 mb-5 bg-white rounded" id="container__class_data">
-                <h4>Placeholder (trieda)</h4>
-                <p>Placeholder (hodina)</p>
-                <h4>Placeholder (trieda)</h4>
-                <p>Placeholder (hodina)</p>
+            <!-- Informácie o triedach (bočný panel, karta 3) -->
+            <div class="card text-center">
+                <div class="card-body shadow">
+                    <h3>4.C</h3>
+                    <h6>Losing will to live</h6>
+                    <h3>4.E</h3>
+                    <h6 data-toggle="tooltip" data-placement="bottom" title="https://goo.gl/9tCzdu">*screaming in the
+                        back seat of car*</h6>
+                </div>
             </div>
-            <div class="shadow p-3 mb-5 bg-white rounded" id="container__metadata">
-                <p><i class="fas fa-code"></i> with <i class="fas fa-angry"></i> by <a href="https://github.com/ttomovcik">
-                        Tomáš Tomovčík</a></p>
+            <!-- Debug message (bočný panel, karta _n_) -->
+            <div class="card text-center" id="debugMessageCard" style="display: none;">
+                <div class="card-body shadow">
+                    <img src="img/debug/dbg_container_test_fill.jpg" alt="Congrats. Now find the other easter eggs"
+                        style="height: 100%; width: 100%; object-fit: contain">
+                </div>
             </div>
         </div>
-        <div class="shadow p-3 mb-5 bg-white rounded" id="content_main">
-            <div id="appNeedsConfigurationError" class="webview_main">
-                <h1>🦄</h1>
-                <h4>Nie je nastavený predvolený server. oof.</h4>
-                <h6>Prejdi do Nastavení -> Škola -> Edupage server</h6>
-                <p>A ak je, plač. Niekde sa stala chyba. Zatiaľ môžeš počkať na aktualizáciu alebo počítať ovečky.</p>
-            </div>
+        <!-- Hlavný kontajner (wrapper) -->
+        <div id="content">
+            <!-- Webview (wrapper, prvok 1) -->
+            <webview id="webview" src="http://www.spspb.edupage.org/substitution/?"></webview>
         </div>
-    </div>
-
-    <script>
-        if (typeof module === 'object') {
-            window.module = module;
-            module = undefined;
-        }
-    </script>
-    <script async src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script async src="js/app.js" onload="startTime();"></script>
-    <script async>
-        ! function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://weatherwidget.io/js/widget.min.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'weatherwidget-io-js');
-    </script>
-    <script>
-        if (window.module) module = window.module;
-    </script>
+        <script async src="js/app.js"></script>
+        <script async>
+            ! function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = 'https://weatherwidget.io/js/widget.min.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'weatherwidget-io-js');
+        </script>
 </body>
 
 </html>

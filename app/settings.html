@@ -16,7 +16,7 @@
         <div class="nav flex-column nav-pills" id="v-pills-tabs" role="tablist" aria-orientation="vertical">
             <input disabled class="form-control" type="text" placeholder="Hľadať nastavenia" style="margin-bottom: 15px; margin-top: 4px;">
             <a class="nav-link active" id="v-pills-overview-tab" data-toggle="pill" href="#v-pills-overview" role="tab"
-                aria-controls="v-pills-overview" aria-selected="true"><i class="fas fa-th"></i> Prehľad <span class="badge badge-warning"><i class="fas fa-cog"></i> {@SPŠPB}</span></span></a>
+                aria-controls="v-pills-overview" aria-selected="true"><i class="fas fa-th"></i> Prehľad</a>
             <a class="nav-link" id="v-pills-school-tab" data-toggle="pill" href="#v-pills-school" role="tab"
                 aria-controls="v-pills-school" aria-selected="false"><i class="fas fa-school"></i> Škola</a>
             <a class="nav-link" id="v-pills-application-tab" data-toggle="pill" href="#v-pills-application" role="tab"
@@ -25,15 +25,18 @@
             <button type="button" onclick="saveSettings();" class="btn btn-outline-success"><i class="fas fa-check"></i>
                 Uložiť nastavenia</button>
             <hr>
-            <div class="alert alert-success" id="successAlert" role="alert" style="display: none;">
-                Hotovo! Už len stačí reštartovať aplikáciu.
+            <div id="successAlert" style="display: none;">
+                <div class="alert alert-success" role="alert">
+                        Hotovo! Nastavenia boli uložené, aplikujú sa pri najbližšom sputení.
+                </div>
+                <button type="button" onclick="restartAppNow();" class="btn btn-outline-warning"><i class="fas fa-check"></i>
+                    Reštartovať teraz</button>
             </div>
         </div>
 
         <div class="tab-content shadow" id="v-pills-tabContent">
-
             <div class="tab-pane fade show active" id="v-pills-overview" role="tabpanel" aria-labelledby="v-pills-overview-tab">
-                <h1><span class="badge badge-warning"><i class="fas fa-cog"></i> {@SPŠPB}</span> Prehľad</h1>
+                <h1>Prehľad</h1>
                 <hr>
                 <h1>🦄</h1>
                 <h4>Something fucked up. You better cry.</h4>

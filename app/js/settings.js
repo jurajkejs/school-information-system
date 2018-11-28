@@ -16,27 +16,24 @@ function saveSettings() {
     // School name
     if (schoolName.value === '' || (store.get('schoolName') === '*')) {
         console.log('[Settings::Store] Skipping: schoolName');
-    }
-    else {
-        console.log('[Settings::Store] Saving: "schoolName" with value: '+schoolName.value);
+    } else {
+        console.log('[Settings::Store] Saving: "schoolName" with value: ' + schoolName.value);
         store.set('schoolName', schoolName.value);
     }
 
     // Edupage server address
     if (edupageServerAddress.value === '' || (store.get('edupageServerAddress') === '*')) {
         console.log('[Settings::Store] Skipping: edupageServerAddress');
-    }
-    else {
-        console.log('[Settings::Store] Saving: "edupageServerAddress" with value: '+edupageServerAddress.value);
+    } else {
+        console.log('[Settings::Store] Saving: "edupageServerAddress" with value: ' + edupageServerAddress.value);
         store.set('edupageServerAddress', edupageServerAddress.value);
     }
 
     // Additional Web Pages (news feed)
     if (additionalWebPages.value === '' || (store.get('additionalWebPages') === '*')) {
         console.log('[Settings::Store] Skipping: additionalWebPages');
-    }
-    else {
-        console.log('[Settings::Store] Saving: "additionalWebPages" with value: '+additionalWebPages.value);
+    } else {
+        console.log('[Settings::Store] Saving: "additionalWebPages" with value: ' + additionalWebPages.value);
         store.set('additionalWebPages', additionalWebPages.value);
     }
 
@@ -44,13 +41,11 @@ function saveSettings() {
     if (applicationPassowrd1.value === applicationPassowrd2.value) {
         if (applicationPassowrd2.value === '' || (store.get('applicationPassowrd') === '*')) {
             console.log('[Settings::Store] Skipping: applicationPassowrd');
-        }
-        else {
+        } else {
             console.log('[Settings::Store] Saving: "applicationPassowrd"');
             store.set('applicationPassowrd', applicationPassowrd2.value);
         }
-    }
-    else {
+    } else {
         console.log('[Settings::Store] Skipping/PwdMismatch: applicationPassowrd');
     }
 
@@ -64,9 +59,20 @@ function saveSettings() {
                 ||     ||`, "font-family:monospace")
 
     // Store settings
-    if (successAlert.style.display === 'none') {
+    if (successAlert.style.display === 'none' ) {
         successAlert.style.display = 'block';
     } else {
         successAlert.style.display = 'none';
     }
+}
+
+function restartAppNow() {
+    // WHY THE FUCK ISN'T THIS WORKING???!!1
+    const {
+        app
+    } = require('electron');
+    app.relaunch({
+        args: process.argv.slice(1).concat(['--relaunch'])
+    })
+    app.exit(0)
 }

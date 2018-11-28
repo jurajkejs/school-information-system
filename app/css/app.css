@@ -21,9 +21,7 @@ html {
     overflow: auto;
 }
 
-.card {
-    margin: 8px;
-}
+.card { margin: 8px; }
 
 #card_weather {
     max-height: 256px !important;
@@ -45,11 +43,4 @@ html {
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
-}
-
-#non-prod-mode {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 16px;
 }
