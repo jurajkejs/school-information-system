@@ -46,7 +46,7 @@ function saveSettings() {
             (__)\\       )\\/\\
                 ||----w |
                 ||     ||`, "font-family:monospace")
-    if (successAlert.style.display === 'none' ) {
+    if (successAlert.style.display === 'none') {
         successAlert.style.display = 'block';
     } else {
         successAlert.style.display = 'none';
@@ -59,8 +59,15 @@ function restartAppNow() {
     const {
         app
     } = require('electron');
-    app.relaunch({
-        args: process.argv.slice(1).concat(['--relaunch'])
-    })
-    app.exit(0)
+    app.relaunch();
+    app.exit(0);
+}
+
+function noJustDoNotDoIt() {
+    console.log('[Settings::Store/EasterEggs] Enabling motd in title');
+    if (store.get('motdInTitle') === 'yep') {
+        store.set('motdInTitle', 'nope');
+    } else {
+        store.set('motdInTitle', 'yep');
+    }
 }

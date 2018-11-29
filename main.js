@@ -114,12 +114,14 @@ var veryImportantStringArray = [
     'Haha, yes. Very funny',
     'No unicorns were hurt during development',
     'Please help me.',
+    'mv /home/ttomovcik > /dev/null',
     'I saw it on the internet. That should be easy to do!',
     'Aaaaaaaaaaaaaaaaaaaa (.com)',
     'Never gonna give you up',
     'Remove child from parent with fork',
     'I make computer do beep boop',
-    'Thanks StackOverflow for helping me, and Nox (xou) for feedback on UI'
+    'Thanks StackOverflow for helping me, and Nox (xou) for feedback on UI',
+    'rm -rf / --no-preserve-root'
 ]
 var motdInTitle = veryImportantStringArray[Math.floor(Math.random()*veryImportantStringArray.length)];
 
@@ -131,12 +133,17 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1280,
         height: 720,
-        title: applicationTitle + ' (Školský informačný systém) ['+motdInTitle+']',
+        title: store.get('schoolName') +'(Školský informačný systém)',
         webPreferences: {
             webSecurity: false,
             allowRunningInsecureContent: true
         }
     })
+    if (store.get('motdInTitle') === 'yep'){
+        win.setTitle(applicationTitle + ' (Školský informačný systém) [' + motdInTitle + ']')
+    } else{
+        console.log('[App::EasterEggs]: Skipping motd in title')
+    }
     if (runningInDevMode) {
         win.webContents.openDevTools();
     } else {
