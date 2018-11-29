@@ -2,12 +2,19 @@ const Store = require('electron-store');
 const store = new Store();
 const app = require('electron');
 
+var contentWrapper = document.getElementsByClassName('wrapper');
+
 var schoolName = document.getElementById('input_school_name');
 var edupageServerAddress = document.getElementById('input_edupage_server');
 var additionalWebPages = document.getElementById('input_additional_pages');
 var applicationPassowrd1 = document.getElementById('application_password1');
 var applicationPassowrd2 = document.getElementById('application_password2');
 var successAlert = document.getElementById('successAlert');
+
+function requirePassword() {
+    // WIP
+    var pwd = store.get('applicationPassword');
+}
 
 function saveSettings() {
     if (schoolName.value === '' || (store.get('schoolName') === '*')) {
@@ -64,10 +71,13 @@ function restartAppNow() {
 }
 
 function noJustDoNotDoIt() {
-    console.log('[Settings::Store/EasterEggs] Enabling motd in title');
+    var mlpURL = 'https://mylittlepony.hasbro.com/worldwide' // Come get some!
     if (store.get('motdInTitle') === 'yep') {
         store.set('motdInTitle', 'nope');
+        console.log('[Settings::Store/EasterEggs] Disabling motd in title');
     } else {
         store.set('motdInTitle', 'yep');
+        console.log('[Settings::Store/EasterEggs] Enabling motd in title');
     }
+    require('electron').shell.openExternal(mlpURL)
 }

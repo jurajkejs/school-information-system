@@ -14,24 +14,25 @@
 
 <body onload="startTime();">
     <div class="wrapper" onload="startTime();">
-        <!-- Bočný panel -->
         <div class="shadow" id="sidebar">
-            <!-- Dátum a čas (bočný panel, karta 1) -->
             <div class="card text-center">
                 <div class="card-body shadow">
-                    <h3 id="dateTime">TIME IS RELATIVE</h3>
+                    <h3 id="dateTime">oof, stlač CTRL+R</h3>
                 </div>
             </div>
-            <!-- Počasie (bočný panel, karta 2) -->
             <div class="card text-center shadow">
                 <div class="card-body" id="card_weather">
                     <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/"
-                        data-label_1="Považská Bystrica"  data-icons="Climacons Animated" data-theme="original" data-basecolor="" data-textcolor="#212121">Považská Bystrica </a>
+                        data-label_1="Považská Bystrica"  data-icons="Climacons Animated" data-theme="original" data-basecolor="" data-textcolor="#212121" data-mooncolor="#bdbdbd">Považská Bystrica </a>
                 </div>
             </div>
-            <!-- Informácie o triedach (bočný panel, karta 3) -->
             <div class="card text-center">
                 <div class="card-body shadow">
+                    <!-- 
+                        <h1> => názov triedy
+                        <h6> => vyučovacia hodina (? možno <p>)
+                        <p>  => zostávajúci čas
+                     -->
                 </div>
             </div>
             <div class="card text-center" id="debugMessageCard" style="display: none;">
@@ -41,9 +42,7 @@
                 </div>
             </div>
         </div>
-        <!-- Hlavný kontajner (wrapper) -->
         <div id="content">
-            <!-- Webview (wrapper, prvok 1) -->
             <webview id="webview" src="http://www.spspb.edupage.org/substitution/?"></webview>
         </div>
         <script>
