@@ -2,6 +2,8 @@ const Store = require('electron-store');
 const store = new Store();
 const app = require('electron');
 
+var firstRun = require('first-run');
+
 var contentWrapper = document.getElementsByClassName('wrapper');
 
 var schoolName = document.getElementById('input_school_name');
@@ -80,4 +82,18 @@ function noJustDoNotDoIt() {
         console.log('[Settings::Store/EasterEggs] Enabling motd in title');
     }
     require('electron').shell.openExternal(mlpURL)
+}
+
+function resetSettings() {
+    console.log('[Settings::Reset] Requested app reset!');
+    console.log('[Settings::Reset/Clean] schoolName');
+    store.set('schoolName','');
+    console.log('[Settings::Reset/Clean] edupageServerAddress');
+    store.set('edupageServerAddress','');
+    console.log('[Settings::Reset/Clean] additionalWebPages');
+    store.set('additionalWebPages','');
+    console.log('[Settings::Reset/Clean] applicationPassword');
+    store.set('applicationPassowrd','');
+    console.log('[Settings::Reset/Clean] firstRun state');
+    firstRun.clear();
 }

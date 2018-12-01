@@ -22,6 +22,7 @@ var veryImportantStringArray = [
     'Remove child from parent with fork',
     'I make computer do beep boop',
     'Thanks StackOverflow for helping me, and Nox (xou) for feedback on UI',
+    "(E)at (A)ss. It's in the game",
     'rm -rf / --no-preserve-root'
 ];
 var motdInTitle = veryImportantStringArray[Math.floor(Math.random() * veryImportantStringArray.length)];

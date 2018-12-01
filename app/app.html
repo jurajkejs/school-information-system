@@ -13,6 +13,28 @@
 </head>
 
 <body onload="startTime();">
+    <!-- Modal (first time run) -->
+    <div class="modal fade" id="firstTimeRunModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Prvé spustenie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Pred tým než sa bude dať táto aplikácia pozžívať bude potrebné upraviť zopár nastavení
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">nah, neverím</button>
+                    <button type="button" class="btn btn-primary">Otvoriť nastavenia</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="wrapper" onload="startTime();">
         <div class="shadow" id="sidebar">
             <div class="card text-center">
@@ -23,7 +45,8 @@
             <div class="card text-center shadow">
                 <div class="card-body" id="card_weather">
                     <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/"
-                        data-label_1="Považská Bystrica"  data-icons="Climacons Animated" data-theme="original" data-basecolor="" data-textcolor="#212121" data-mooncolor="#bdbdbd">Považská Bystrica </a>
+                        data-label_1="Považská Bystrica" data-icons="Climacons Animated" data-theme="original"
+                        data-basecolor="" data-textcolor="#212121" data-mooncolor="#bdbdbd">Považská Bystrica </a>
                 </div>
             </div>
             <div class="card text-center">
@@ -52,6 +75,7 @@
             }
         </script>
         <script async src="js/app.js"></script>
+        <script src="js/firstTimeRun.js"></script>
         <script async>
             ! function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
