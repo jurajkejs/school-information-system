@@ -13,15 +13,8 @@ var veryImportantStringArray = [
     "No, I won't fix you printer!",
     'Haha, yes. Very funny',
     'No unicorns were hurt during development',
-    'Please help me.',
-    'mv /home/ttomovcik > /dev/null',
-    'I saw it on the internet. That should be easy to do!',
-    'Aaaaaaaaaaaaaaaaaaaa (.com)',
-    'Never gonna give you up',
+    'mv ttomovcik > /dev/null',
     'Remove child from parent with fork',
-    'I make computer do beep boop',
-    'Thanks StackOverflow for helping me, and Nox (xou) for feedback on UI',
-    "(E)at (A)ss. It's in the game",
     'rm -rf / --no-preserve-root'
 ];
 var motdInTitle = veryImportantStringArray[Math.floor(Math.random() * veryImportantStringArray.length)];
