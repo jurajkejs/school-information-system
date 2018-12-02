@@ -4,8 +4,6 @@ const app = require('electron');
 
 var firstRun = require('first-run');
 
-var contentWrapper = document.getElementsByClassName('wrapper');
-
 var schoolName = document.getElementById('input_school_name');
 var edupageServerAddress = document.getElementById('input_edupage_server');
 var additionalWebPages = document.getElementById('input_additional_pages');
@@ -86,14 +84,15 @@ function noJustDoNotDoIt() {
 
 function resetSettings() {
     console.log('[Settings::Reset] Requested app reset!');
-    console.log('[Settings::Reset/Clean] schoolName');
+    console.log('[Settings::Reset] Resetting: schoolName');
     store.set('schoolName','');
-    console.log('[Settings::Reset/Clean] edupageServerAddress');
+    console.log('[Settings::Reset] Resetting: edupageServerAddress');
     store.set('edupageServerAddress','');
-    console.log('[Settings::Reset/Clean] additionalWebPages');
+    console.log('[Settings::Reset] Resetting: additionalWebPages');
     store.set('additionalWebPages','');
-    console.log('[Settings::Reset/Clean] applicationPassword');
+    console.log('[Settings::Reset] Resetting: applicationPassword');
     store.set('applicationPassowrd','');
-    console.log('[Settings::Reset/Clean] firstRun state');
+    console.log('[Settings::Reset] Resetting: firstRun.state');
     firstRun.clear();
+    console.log('[Settings::Reset] Done!');
 }

@@ -9,7 +9,6 @@ const runningInDevMode = require('electron-is-dev');
 var path = require('path');
 var appUIPath = 'file://' + __dirname + '/app/app.html';
 var settingsUIPath = 'file://' + __dirname + '/app/settings.html';
-var firstTimeRunUIPath = 'file://' + __dirname + '/app/firstTimeRun.html'
 var veryImportantStringArray = [
     "No, I won't fix you printer!",
     'Haha, yes. Very funny',
@@ -56,11 +55,6 @@ const menuTemplate = [{
 {
     label: 'Zobrazenie',
     submenu: [
-        {
-            label: 'Aktualizovať obsah',
-            click() {console.log('[MainUI::callFromMainScript] Refreshing webview')}
-        },
-        {type: 'separator'},
         {role: 'reload'},
         {role: 'forcereload'},
         {type: 'separator'},
@@ -74,29 +68,7 @@ const menuTemplate = [{
 {
     role: 'help',
     submenu: [
-        {
-            label: 'Nápoveda',
-            click() {require('electron').shell.openExternal(projectWikiPage)}
-        },
-        {
-            label: 'Prvé spustenie',
-            click() {
-                let firstRunWindow = new BrowserWindow({
-                    width: 800,
-                    height: 600,
-                })
-                firstRunWindow.on('close', function () {
-                    firstRunWindow = null
-                })
-                firstRunWindow.loadURL(firstTimeRunUIPath)
-                firstRunWindow.show();
-                if (runningInDevMode) {
-                    win.webContents.openDevTools();
-                } else {
-                    console.log('[App::Prod] Disabling devTools');
-                }
-            }
-        },
+        {label: 'Nápoveda', click() {require('electron').shell.openExternal(projectWikiPage)}}
     ]
 }
 ]

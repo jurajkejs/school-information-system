@@ -7,13 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/app.css" />
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
 </head>
 
 <body onload="startTime();">
-    <!-- Modal (first time run) -->
+    <!-- Modal (first time run), nefunguje -->
     <div class="modal fade" id="firstTimeRunModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -37,11 +34,15 @@
 
     <div class="wrapper" onload="startTime();">
         <div class="shadow" id="sidebar">
+            <!-- Card - zobrazí dátum a čas pri načítaní -->
             <div class="card text-center">
                 <div class="card-body shadow">
-                    <h3 id="dateTime">oof, stlač CTRL+R</h3>
+                    <!-- Text sa zobratí ak sa dačo poakazí -->
+                    <h3 id="dateTime">I just shit my pants. Press CTRL+R onii-san</h3>
                 </div>
             </div>
+
+            <!-- Počasie. Momentálne iba pre PB, nedá sa nastaviť dynamicky, zatiaľ.. -->
             <div class="card text-center shadow">
                 <div class="card-body" id="card_weather">
                     <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/"
@@ -49,22 +50,44 @@
                         data-basecolor="" data-textcolor="#212121" data-mooncolor="#bdbdbd">Považská Bystrica </a>
                 </div>
             </div>
+            <!--
+                Informácie o triedach:
+                    1. Názov triedy (4.C, 4.n...)
+                    2. Predmet (Matematika, Hudoná, existenčná kríza...)
+                    3. Zostávajúci čas
+            -->
             <div class="card text-center">
                 <div class="card-body shadow">
-                    <!-- 
-                        <h1> => názov triedy
-                        <h6> => vyučovacia hodina (? možno <p>)
-                        <p>  => zostávajúci čas
-                     -->
+                     <!-- Tutaj toto dolu je placeholder, bude to nahradené neskôr. -->
+                     <h3>{{ trieda }}</h3>
+                     <h6>{{ hodina }}</h6>
+                     <p>{{ čas }}</p>
+                     <hr>
+                     <h3>{{ trieda }}</h3>
+                     <h6>{{ hodina }}</h6>
+                     <p>{{ čas }}</p>
+                     <hr>
+                     <h3>{{ trieda }}</h3>
+                     <h6>{{ hodina }}</h6>
+                     <p>{{ čas }}</p>
                 </div>
             </div>
+
+            <!-- 
+                Toto sa zobrazí iba pri programovaní. V prod verzii toto nebude.
+                Tento prvok bol použitý na testovanie prispôsobenia stránky.
+             -->
             <div class="card text-center" id="debugMessageCard" style="display: none;">
                 <div class="card-body shadow">
+                    <h4>Looks like this works!</h4>
+                    <hr></h>
                     <img src="img/debug/dbg_container_test_fill.jpg" alt="Congrats. Now find the other easter eggs"
                         style="height: 100%; width: 100%; object-fit: contain">
                 </div>
             </div>
         </div>
+
+        <!-- Hlavný obsah, momentálne obsahuje iba fixný webview, neskôr sa bude dať zmeniť na iný, prípadne zobrazovať správy a pod. -->
         <div id="content">
             <webview id="webview" src="http://www.spspb.edupage.org/substitution/?"></webview>
         </div>
