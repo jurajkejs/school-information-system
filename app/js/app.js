@@ -28,6 +28,7 @@ if (firstRun === 'true') {
     store.set('edupageServerAddress','');
     store.set('additionalWebPages','');
     store.set('applicationPassowrd','');
+    store.set('motdInTitle', 'nope');
     firstRun.clear();
     console.log('[App::FirstTimeRun] Running for the first time. Showing fTR modal.')
     $('#firstTimeRunModal').modal('show')

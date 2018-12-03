@@ -13,6 +13,7 @@ var successAlert = document.getElementById('successAlert');
 
 function requirePassword() {
     // WIP
+    // TODO: Blur pozadia, popup s heslom
     var pwd = store.get('applicationPassword');
 }
 
@@ -92,6 +93,8 @@ function resetSettings() {
     store.set('additionalWebPages','');
     console.log('[Settings::Reset] Resetting: applicationPassword');
     store.set('applicationPassowrd','');
+    console.log('[Settings::Reset] Resetting: App::EasterEggs/motdInTitle');
+    store.set('motdInTitle', 'nope');
     console.log('[Settings::Reset] Resetting: firstRun.state');
     firstRun.clear();
     console.log('[Settings::Reset] Done!');
