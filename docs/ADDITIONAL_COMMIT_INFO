@@ -1,0 +1,11 @@
+6.12.2018 17:42
+===============
+opravený preklep v záhlaví okna (chýbajúca medzera)
+odstránené nepotrebné balíky (first-run)
+upravený wrapper v nastaveniach (názov textového poľa sa zobrazí nad textovým poľom)
+uložené hodnoty z textových polí sa načítajú a zobrazia
+pridaný autoTheming (zatiaľ len vianočná téma)
+pridané vianočné vločky pre autoTheming
+zmenená debug správa
+odstránený fTR modal
+a toť asi všetko

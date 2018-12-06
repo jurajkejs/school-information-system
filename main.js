@@ -20,50 +20,73 @@ var veryImportantStringArray = [
 var motdInTitle = veryImportantStringArray[Math.floor(Math.random() * veryImportantStringArray.length)];
 var projectWikiPage = 'https://github.com/ttomovcik/school-information-system/wiki';
 const menuTemplate = [{
-    label: 'Súbor',
-    submenu: [{
-            label: 'Nastavenia',
-            click() {
-                let settingsWindow = new BrowserWindow({
-                    width: 1024,
-                    height: 768,
-                })
-                settingsWindow.on('close', function () {
-                    settingsWindow = null
-                })
-                settingsWindow.loadURL(settingsUIPath)
-                settingsWindow.show();
-                if (runningInDevMode) {
-                    settingsWindow.webContents.openDevTools();
-                } else {
-                    console.log('[App::Prod] Disabling devTools');
+        label: 'Súbor',
+        submenu: [{
+                label: 'Nastavenia',
+                click() {
+                    let settingsWindow = new BrowserWindow({
+                        width: 1024,
+                        height: 768,
+                    })
+                    settingsWindow.on('close', function () {
+                        settingsWindow = null
+                    })
+                    settingsWindow.loadURL(settingsUIPath)
+                    Menu.setApplicationMenu(null)
+                    settingsWindow.show();
+                    if (runningInDevMode) {
+                        settingsWindow.webContents.openDevTools();
+                    }
                 }
+            },
+            {
+                type: 'separator'
+            },
+            {
+                role: 'minimize'
+            },
+            {
+                role: 'close'
             }
-        },
-        {type: 'separator'},
-        {role: 'minimize'},
-        {role: 'close'}
-    ]
-},
-{
-    label: 'Zobrazenie',
-    submenu: [
-        {role: 'reload'},
-        {role: 'forcereload'},
-        {type: 'separator'},
-        {role: 'resetzoom'},
-        {role: 'zoomin'},
-        {role: 'zoomout'},
-        {type: 'separator'},
-        {role: 'togglefullscreen'}
-    ]
-},
-{
-    role: 'help',
-    submenu: [
-        {label: 'Nápoveda', click() {require('electron').shell.openExternal(projectWikiPage)}}
-    ]
-}
+        ]
+    },
+    {
+        label: 'Zobrazenie',
+        submenu: [{
+                role: 'reload'
+            },
+            {
+                role: 'forcereload'
+            },
+            {
+                type: 'separator'
+            },
+            {
+                role: 'resetzoom'
+            },
+            {
+                role: 'zoomin'
+            },
+            {
+                role: 'zoomout'
+            },
+            {
+                type: 'separator'
+            },
+            {
+                role: 'togglefullscreen'
+            }
+        ]
+    },
+    {
+        role: 'help',
+        submenu: [{
+            label: 'Nápoveda',
+            click() {
+                require('electron').shell.openExternal(projectWikiPage)
+            }
+        }]
+    }
 ]
 const menu = Menu.buildFromTemplate(menuTemplate)
 let win
@@ -75,7 +98,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 1280,
         height: 720,
-        title: store.get('schoolName') + '(Školský informačný systém)',
+        title: store.get('schoolName') + ' ' + '(Školský informačný systém)',
         icon: path.join(__dirname, 'app/img/icons/png/64x64.png'),
         webPreferences: {
             webSecurity: false,
@@ -83,14 +106,10 @@ function createWindow() {
         }
     })
     if (store.get('motdInTitle') === 'yep') {
-        win.setTitle(applicationTitle + ' (Školský informačný systém) [' + motdInTitle + ']')
-    } else {
-        console.log('[App::EasterEggs]: Skipping motd in title')
+        win.setTitle(applicationTitle + ' ' + '(Školský informačný systém) [' + motdInTitle + ']')
     }
     if (runningInDevMode) {
         win.webContents.openDevTools();
-    } else {
-        console.log('[App::Prod] Disabling devTools');
     }
     win.loadURL(appUIPath)
     win.on('closed', () => {
@@ -99,5 +118,13 @@ function createWindow() {
     })
 }
 app.on('ready', createWindow)
-app.on('window-all-closed', () => {if (process.platform !== 'darwin') {app.quit()}})
-app.on('activate', () => {if (win === null) {createWindow();}})
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+})
+app.on('activate', () => {
+    if (win === null) {
+        createWindow();
+    }
+})

@@ -28,6 +28,13 @@ body {
 
 .generic_l_title_r_setting_wrapper{
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.generic_l_title_r_setting_wrapper_buttonsOnly{
+    display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
@@ -35,14 +42,15 @@ body {
 
 .l_title_header{
     margin: 16px;
+    margin-bottom: -8px;
     color: #212121;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
 }
 
 .r_setting_form{
-    max-width: 40%;
     margin: 16px;
+    max-width: 97%;
 }
 
 #v-pills-tabs {

@@ -10,32 +10,47 @@
 </head>
 
 <body onload="startTime();">
-    <!-- Modal (first time run), nefunguje -->
-    <div class="modal fade" id="firstTimeRunModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Prvé spustenie</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Pred tým než sa bude dať táto aplikácia pozžívať bude potrebné upraviť zopár nastavení
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">nah, neverím</button>
-                    <button type="button" class="btn btn-primary">Otvoriť nastavenia</button>
-                </div>
+    <div class="wrapper" onload="startTime();">
+        <!--
+            Vianočné vločky! Zobrazí ich autoTheming.js
+            ak je December a povolená zmena témy (Nastavenia -> Aplikácia)
+        -->
+        <div class="snowflakes" id="snowflakes" aria-hidden="true" style="display: none;">
+            <div class="snowflake">
+                ❄
+            </div>
+            <div class="snowflake">
+                ❅
+            </div>
+            <div class="snowflake">
+                ❆
+            </div>
+            <div class="snowflake">
+                ❄
+            </div>
+            <div class="snowflake">
+                ❅
+            </div>
+            <div class="snowflake">
+                ❆
+            </div>
+            <div class="snowflake">
+                ❄
+            </div>
+            <div class="snowflake">
+                ❅
+            </div>
+            <div class="snowflake">
+                ❆
+            </div>
+            <div class="snowflake">
+                ❄
             </div>
         </div>
-    </div>
 
-    <div class="wrapper" onload="startTime();">
         <div class="shadow" id="sidebar">
             <!-- Card - zobrazí dátum a čas pri načítaní -->
-            <div class="card text-center">
+            <div class="card text-center" id="card_dateTime">
                 <div class="card-body shadow">
                     <!-- Text sa zobratí ak sa dačo poakazí -->
                     <h3 id="dateTime">I just shit my pants. Press CTRL+R onii-san</h3>
@@ -50,15 +65,17 @@
                         data-basecolor="" data-textcolor="#212121" data-mooncolor="#bdbdbd">Považská Bystrica </a>
                 </div>
             </div>
-            
+
             <!-- 
                 Toto sa zobrazí iba pri programovaní. V prod verzii toto nebude.
                 Tento prvok bol použitý na testovanie prispôsobenia stránky.
              -->
-            <div class="card text-center" id="debugMessageCard" style="display: none;">
+            <div class="card text-center alert-warning" id="debugMessageCard" style="display: none;">
                 <div class="card-body shadow">
-                    <h4>Looks like this works!</h4>
-                    <hr></h>
+                    <h4>Running in debug mode</h4>
+                    <p>Školský informačný systém</p>
+                    <hr>
+                    </h>
                     <img src="img/debug/dbg_container_test_fill.jpg" alt="Congrats. Now find the other easter eggs"
                         style="height: 100%; width: 100%; object-fit: contain">
                 </div>
@@ -75,8 +92,8 @@
                 module = undefined;
             }
         </script>
-        <script async src="js/app.js"></script>
-        <script src="js/firstTimeRun.js"></script>
+        <script src="js/renderer_app.js"></script>
+        <script src="js/autoTheming.js"></script>
         <script async>
             ! function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];

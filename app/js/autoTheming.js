@@ -5,14 +5,23 @@
     Entire December => xmas theme
 */
 
-/* 
-    Christmas theme (Or just use theming options from Bootstrap)
-    ===============
+console.log('[AutoTheming::Status] autoTheming is loaded.');
+console.log('[AutoTheming::Status] autoTheming.state: '+store.get('toggleAutoTheming'));
 
-    Red:        #e74c3c
-    Green:      #2ecc71
-    Blue:       #3498db
-    Purple:     #9b59b6
-    Gold:       #f1c40f (more yellow-ish)
-    White       #ecf0f1
-*/
+var $ = jQuery = require('jquery');
+
+var date = new Date();
+var day =date.getDate();
+var month = (date.getMonth()+1);
+
+var app_snowflakes = document.getElementById('snowflakes');
+
+var app_element_text_dateTime = document.getElementById('dateTime');
+
+if (store.get('toggleAutoTheming') === 'enabled') {
+    if (month == '12') {
+        console.log('[AutoTheming::Status/CurrentHoliday] Issa me, December');
+        app_snowflakes.style.display = 'block';
+        $(app_element_text_dateTime).addClass("christmas_gradient_anim_text");
+    }
+}
