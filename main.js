@@ -32,7 +32,6 @@ const menuTemplate = [{
                         settingsWindow = null
                     })
                     settingsWindow.loadURL(settingsUIPath)
-                    Menu.setApplicationMenu(null)
                     settingsWindow.show();
                     if (runningInDevMode) {
                         settingsWindow.webContents.openDevTools();
