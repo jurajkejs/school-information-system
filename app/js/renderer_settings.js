@@ -30,7 +30,6 @@ setTimeout(function prepareDashboard() {
         $(schoolName).attr('placeholder', store.get('schoolName'));
         $(edupageServerAddress).attr('placeholder', store.get('edupageServerAddress'));
         $(additionalWebPages).attr('placeholder', store.get('additionalWebPages'));
-
     } else {
         $(schoolName).attr('placeholder', 'Nazov školy');
         $(edupageServerAddress).attr('placeholder', 'https://www.skola.edupage.org');
