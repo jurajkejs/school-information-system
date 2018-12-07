@@ -6,13 +6,18 @@ var overviewCard_schoolName = document.getElementById('overviewCard_schoolName')
 var overviewCard_edupageServer = document.getElementById('overviewCard_edupageServer');
 var overviewCard_additionalPages = document.getElementById('overviewCard_additionalPages');
 var overviewCard_autoTheming = document.getElementById('overviewCard_autoTheming');
-var overviewCard_additionalPages = document.getElementById('overviewCard_passwordState');
+var overviewCard_passwordState = document.getElementById('overviewCard_passwordState');
 var schoolName = document.getElementById('input_school_name');
 var edupageServerAddress = document.getElementById('input_edupage_server');
 var additionalWebPages = document.getElementById('input_additional_pages');
 var applicationPassowrd1 = document.getElementById('application_password1');
 var applicationPassowrd2 = document.getElementById('application_password2');
 var successAlert = document.getElementById('successAlert');
+var loadSpinner_card_schoolName = document.getElementById('loadSpinner_card_schoolName');
+var loadSpinner_card_edupageServerAddress = document.getElementById('loadSpinner_card_edupageServerAddress');
+var loadSpinner_card_additionalPages = document.getElementById('loadSpinner_card_additionalPages');
+var loadSpinner_card_autoTheming = document.getElementById('loadSpinner_card_autoTheming');
+var loadSpinner_card_password = document.getElementById('loadSpinner_card_password');
 var storedValue_schoolName = store.get('schoolName');
 var storedValue_edupageServer = store.get('edupageServerAddress');
 var storedValue_additionalWebPages = store.get('additionalWebPages');
@@ -31,26 +36,42 @@ if (settingsForms.indexOf(settingsForms.length) == 'undefined') {
     $(additionalWebPages).attr('placeholder', 'https://www.4chan.org, https://www.ayy-lmao.com');
 }
 
-if (storedValue_schoolName == '*') {
+if (storedValue_schoolName == '*' || storedValue_schoolName == ' ') {
+    overviewCard_schoolName.innerHTML = 'Názov školy nie je nastavený'
+    $(loadSpinner_card_schoolName).remove();
+} else {
     overviewCard_schoolName.innerHTML = storedValue_schoolName;
-} else {
-    overviewCard_schoolName.innerHTML = 'Názov školy nie je nastavený';
+    $(loadSpinner_card_schoolName).remove();
 }
-if (overviewCard_edupageServer == '*') {
+if (storedValue_edupageServer == '*' || storedValue_edupageServer == ' ') {
+    overviewCard_edupageServer.innerHTML = 'Edupage server nie je nastavený'
+    $(loadSpinner_card_edupageServerAddress).remove();
+} else {
     overviewCard_edupageServer.innerHTML = storedValue_edupageServer;
-} else {
-    overviewCard_edupageServer.innerHTML = 'Edupage server nie je nastavený';
+    $(loadSpinner_card_edupageServerAddress).remove();
 }
-if (overviewCard_additionalPages == '*') {
-    overviewCard_additionalPages.innerHTML = 'Počet stránok: ' + storedValue_additionalWebPages.length;
-} else {
+if (storedValue_additionalWebPages == '*' || storedValue_additionalWebPages ==' ') {
     overviewCard_additionalPages.innerHTML = 'Dodatočné stránky nie sú nastavené';
-}
-if (overviewCard_autoTheming == 'enabled') {
-    overviewCard_autoTheming.innerHTML = 'autoTheming je povolený';
+    $(loadSpinner_card_additionalPages).remove();
 } else {
-    overviewCard_autoTheming.innerHTML = 'autoTheming je zakázaný';
+    overviewCard_additionalPages.innerHTML = 'Dodatočné stránky sú nastavené'
+    $(loadSpinner_card_additionalPages).remove();
 }
+if (storedValue_toggleAutoTheming == 'enabled' || storedValue_toggleAutoTheming !==' ') {
+    overviewCard_autoTheming.innerHTML = 'Automatická zmena témy je povolená';
+    $(loadSpinner_card_autoTheming).remove();
+} else {
+    overviewCard_autoTheming.innerHTML = 'Automatická zmena témy je zakázaná';
+    $(loadSpinner_card_autoTheming).remove();
+}
+if (storedValue_applicationPassword == '*' || storedValue_applicationPassword ==' ') {
+    overviewCard_passwordState.innerHTML = 'Heslo je nastavené';
+    $(loadSpinner_card_password).remove();
+} else {
+    overviewCard_passwordState.innerHTML = 'Heslo nie je nastavené'
+    $(loadSpinner_card_password).remove();
+}
+
 
 function saveSettings() {
     if (schoolName.value == '' || storedValue_schoolName == '*') {

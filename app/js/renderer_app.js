@@ -22,7 +22,7 @@ var bugOfWisdomAndHisThoughts = [
 var randomBugOfWisdomAndHisThoughts = bugOfWisdomAndHisThoughts[Math.floor(Math.random() * bugOfWisdomAndHisThoughts.length)];
 
 bugOfWisdom.innerHTML = randomBugOfWisdomAndHisThoughts;
-console.log('renderer_app.js => Wake up, Neo...');
+console.log('[*] Wake up, Neo...');
 
 function startTime() {
     var today = new Date();
@@ -35,6 +35,7 @@ function startTime() {
     h = checkTime(h);
     m = checkTime(m);
     s = checkTime(s);
+    // Pri month treba nechať '+1' nech neukazuje jeden mesiac späť. 
     document.getElementById('dateTime').innerHTML =
         day + "." + (month+1) + "." + year + " " + h + ":" + m + ":" + s; // DD.MM.YYYY HH:MM::SS
     var t = setTimeout(startTime, 500);
@@ -48,12 +49,12 @@ function checkTime(i) {
 }
 
 if (runningInDevMode) {
-    console.log('(runningInDevMode) => Running in dev mode');
+    console.log('[*] Running in dev mode');
     if (debugMessageCard.style.display === 'none') {
         debugMessageCard.style.display = 'block';
     } else {
         debugMessageCard.style.display = 'none';
     }
 } else {
-    console.log('[App::Renderer/Info] Running in prod mode');
+    console.log('[*] Running in prod mode');
 }

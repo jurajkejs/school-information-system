@@ -10,7 +10,7 @@
 </head>
 
 <body onload="startTime();">
-    <div class="wrapper" onload="startTime();">
+    <div class="wrapper" id="app_wrapper" onload="startTime();">
         <!--
             Vianočné vločky! Zobrazí ich autoTheming.js
             ak je December a povolená zmena témy (Nastavenia -> Aplikácia)
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div class="shadow" id="sidebar">
+        <div class="shadow-lg" id="sidebar">
             <!-- Card - zobrazí dátum a čas pri načítaní -->
             <div class="card text-center" id="card_dateTime">
                 <div class="card-body shadow">
@@ -58,8 +58,8 @@
             </div>
 
             <!-- Počasie. Momentálne iba pre PB, nedá sa nastaviť dynamicky, zatiaľ.. -->
-            <div class="card text-center shadow">
-                <div class="card-body" id="card_weather">
+            <div class="card text-center shadow" id="card_weather">
+                <div class="card-body">
                     <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/"
                         data-label_1="Považská Bystrica" data-icons="Climacons Animated" data-theme="original"
                         data-basecolor="" data-textcolor="#212121" data-mooncolor="#bdbdbd">Považská Bystrica </a>
