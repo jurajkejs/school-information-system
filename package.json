@@ -1,6 +1,6 @@
 {
   "name": "school-information-system",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Nástenka s informáciami pre žiakov",
   "main": "./main.js",
   "scripts": {

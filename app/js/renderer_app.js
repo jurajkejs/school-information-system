@@ -1,6 +1,4 @@
 const runningInDevMode = require('electron-is-dev');
-const Store = require('electron-store');
-const store = new Store();
 
 var debugMessageCard = document.getElementById('debugMessageCard');
 var bugOfWisdom = document.getElementById('bugOfWisdom');
