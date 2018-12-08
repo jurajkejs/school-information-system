@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./src/stylesheets/index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body onload="startTime();">
+    <!-- Window header -->
+    <div class="navbar navbar-expand-lg navbar-light bg-dark text-light shadow">
+        <img src="resources/icons/app.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" id="navbar_application_title" style="margin-left: 8px !important; font-weight: 300;">Školský
+            informačný systém</a>
+    </div>
+
+    <!-- Wrapper -->
+    <div class="wrapper">
+        <div class="sidebar shadow-lg">
+            <!-- Sidebar -->
+            <!-- Date & Time -->
+            <div class="text-center" id="card_date-time_weather">
+                <h3 id="dateTime" style="margin-top: 8px;">{{ dateTime }}</h3>
+            </div>
+            <hr>
+        </div>
+        <div class="content">
+            <!-- Content -->
+        </div>
+    </div>
+
+    <div class="snowflakes" id="snowflakes" aria-hidden="true" style="display: none;">
+        <div class="snowflake">
+            ❄
+        </div>
+        <div class="snowflake">
+            ❅
+        </div>
+        <div class="snowflake">
+            ❆
+        </div>
+        <div class="snowflake">
+            ❄
+        </div>
+        <div class="snowflake">
+            ❅
+        </div>
+        <div class="snowflake">
+            ❆
+        </div>
+        <div class="snowflake">
+            ❄
+        </div>
+        <div class="snowflake">
+            ❅
+        </div>
+        <div class="snowflake">
+            ❆
+        </div>
+        <div class="snowflake">
+            ❄
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script async>
+        ! function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'weatherwidget-io-js');
+    </script>
+    <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./src/index.js"></script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
+    <!-- It's time to kick gum and chew ass. And I'm all out of ass. -Dick Kickem -->
+    <!-- https://www.youtube.com/watch?v=gnVag2Nwaug -->
+</body>
+
+</html>

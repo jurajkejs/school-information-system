@@ -1,45 +1,34 @@
-body,
-html {
-    top: 0;
-    left: 0;
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC|Roboto|Montserrat|Open+Sans');
+
+html,
+body {
     height: 100%;
     width: 100%;
+    background-color: #ffffff
 }
 
-.wrapper {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    background-color: #fafafa;
+a,
+h3 {
+    font-family: 'Roboto', sans-serif !important;
 }
 
-#sidebar {
-    position: relative;
-    height: 100%;
-    width: 25%;
-    overflow: auto;
+h3 {
+    color: #212121;
+    text-emphasis: bold;
+    font-weight: 200 !important;
 }
 
-.card {
+hr {
     margin: 8px;
 }
 
-#card_weather {
-    max-height: 256px !important;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-
-#content {
-    height: 100%;
-    width: 75%;
-    flex: 1;
-}
-
-#webview {
-    width: 100%;
-    min-height: 100% !important;
+.navbar {
+    position: fixed;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
 }
 
 ::-webkit-scrollbar {
@@ -47,23 +36,26 @@ html {
     background: transparent;
 }
 
-.christmas_gradient_anim_text {
-    background-image: -webkit-linear-gradient(92deg, #e74c3c, #2ecc71);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: hue 5s infinite linear;
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%
 }
 
-@-webkit-keyframes hue {
-    from {
-        -webkit-filter: hue-rotate(0deg);
-    }
-
-    to {
-        -webkit-filter: hue-rotate(-360deg);
-    }
+.sidebar {
+    width: 25%;
+    margin-top: 8px;
+    background-color: #fafafa;
 }
 
+.content {
+    flex: 1;
+}
+
+.card {
+    margin: 8px;
+}
 
 .snowflake {
     color: #fff;
