@@ -57,6 +57,11 @@ Mousetrap.bind(['command+n', 'ctrl+n'], function () {
     }
 });
 
+// Show wiki page after pressing '?'
+Mousetrap.bind('?', function () {
+    electron.shell.openExternal('https://www.github.com/ttomovcik/school-information-system/wiki')
+});
+
 // Show date and time in main UI
 function startTime() {
     var today = new Date();
@@ -81,19 +86,4 @@ function checkTime(i) {
         i = "0" + i
     };
     return i;
-}
-
-function getAllStoredValues() {
-    // School name and logo are already being loaded, no need to create another variable for them
-    var dbg_storedValue_edupageServerAddress = store.get('edupageServerAddress');
-    var dbg_storedValue_additionalWebsites = store.get('additionalWebPages');
-    var dbg_storedValue_autoTheming = store.get('toggleAutoTheming');
-    var dbg_storedValue_passwordState = store.get('applicationPassowrd');
-    console.log('[DEBUG] Retrieving stored value for: schoolName            => ' + storedValue_schoolName);
-    console.log('[DEBUG] Retrieving stored value for: schoolLogoPath        => ' + storedValue_appIcon);
-    console.log('[DEBUG] Retrieving stored value for: edupageServerAddress  => ' + dbg_storedValue_edupageServerAddress);
-    console.log('[DEBUG] Retrieving stored value for: additionalWebsites    => ' + dbg_storedValue_additionalWebsites);
-    console.log('[DEBUG] Retrieving stored value for: toggleAutoTheming     => ' + dbg_storedValue_autoTheming);
-    console.log('[DEBUG] Retrieving stored value for: applicationPassword   => ' + dbg_storedValue_passwordState);
-
 }

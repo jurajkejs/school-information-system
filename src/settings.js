@@ -12,6 +12,7 @@ var form__schoolName = document.getElementById('form__school-name');
 var form__schoolLogoFileName = document.getElementById('form__school-logo-filename');
 var form__edupageServer = document.getElementById('form__edupage-server');
 var stored__schoolName = store.get('schoolName');
+var stored__schoolLogoFileName = store.get('schoolLogoFileName');
 var stored__edupageServerAddress = store.get('edupageServerAddress');
 var storedValue_toggleAutoTheming = store.get('toggleAutoTheming');
 
@@ -36,7 +37,8 @@ $(form__schoolName).on('focusout', function() {
     }
 });
 
-$(form__schoolLogoFileName).on('focusout', function() {
+$(form__schoolLogoFileName).change(function () {
+    console.log(form__schoolLogoFileName.files[0].path);
 });
 
 $(form__edupageServer).on('focusout', function() {
