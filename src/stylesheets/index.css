@@ -4,16 +4,17 @@ html,
 body {
     height: 100%;
     width: 100%;
+    overflow: hidden;
     background-color: #ffffff
 }
 
-a,
-h3 {
+a {
     font-family: 'Roboto', sans-serif !important;
 }
 
-h3 {
+h4 {
     color: #212121;
+    font-family: 'Montserrat', sans-serif !important;
     text-emphasis: bold;
     font-weight: 200 !important;
 }
@@ -40,10 +41,14 @@ hr {
     display: flex;
     flex-direction: row;
     height: 100%;
-    width: 100%
+    min-height: 100%;
+    width: 100%;
+    margin-top: 56px;
+    overflow: hidden;
 }
 
 .sidebar {
+    position: relative;
     width: 25%;
     margin-top: 8px;
     background-color: #fafafa;
@@ -51,6 +56,11 @@ hr {
 
 .content {
     flex: 1;
+}
+
+#webview {
+    height: 100%;
+    min-height: 100%;
 }
 
 .card {

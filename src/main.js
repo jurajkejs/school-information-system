@@ -4,6 +4,10 @@ const {
 } = require('electron');
 const runningInDevMode = require('electron-is-dev');
 
+const easterEgg_motdInTitle_strings = [
+    'This app was a mistake.'
+]
+
 let win
 
 function createWindow() {

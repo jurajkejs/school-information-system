@@ -9,10 +9,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
 </head>
 
-<body onload="startTime();">
+<body>
     <!-- Window header -->
-    <div class="navbar navbar-expand-lg navbar-light bg-dark text-light shadow">
-        <img src="resources/icons/app.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    <div class="navbar navbar-expand-lg fixed-top navbar-light bg-dark text-light shadow">
+        <img src="resources/icons/app.png" id="app_icon" width="30" height="30" class="d-inline-block align-top" alt="">
         <a class="navbar-brand" id="navbar_application_title" style="margin-left: 8px !important; font-weight: 300;">Školský
             informačný systém</a>
     </div>
@@ -22,13 +22,17 @@
         <div class="sidebar shadow-lg">
             <!-- Sidebar -->
             <!-- Date & Time -->
-            <div class="text-center" id="card_date-time_weather">
-                <h3 id="dateTime" style="margin-top: 8px;">{{ dateTime }}</h3>
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h4 id="dateTime" style="margin-top: 8px;">{{ dateTime }}</h4>
+                </div>
             </div>
+
             <hr>
         </div>
         <div class="content">
             <!-- Content -->
+            <webview id="webview" src="http://www.spspb.edupage.org/substitution/?"></webview>
         </div>
     </div>
 

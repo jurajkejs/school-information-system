@@ -11,33 +11,53 @@ var Mousetrap = require('mousetrap');
 var navbar_application_title = document.getElementById('navbar_application_title');
 var snowflakes = document.getElementById('snowflakes');
 var storedValue_schoolName = store.get('schoolName');
+var storedValue_appIcon = store.get('schoolLogoPath');
+var appIcon = document.getElementById('app_icon');
+var app_icon_template_p1 = '<img src="';
+var app_icon_template_p2 = ' width="30" height="30" class="d-inline-block align-top" alt="">';
 
-if (storedValue_schoolName !== '*' || storedValue_schoolName !== 'undefined') {
+// Set school name if user already saved one
+if (storedValue_schoolName == '*' || storedValue_schoolName == '') {
+    navbar_application_title.innerHTML = 'Školský informačný systém';
+} else {
     navbar_application_title.innerHTML = storedValue_schoolName;
 }
 
+// Do the same thing we did with title, but now with logo
+if (storedValue_appIcon == '*' || storedValue_appIcon == '') {
+    $(appIcon).replaceWith(app_icon_template_p1 + storedValue_appIcon + app_icon_template_p2);
+}
+
+setInterval(function () {
+    startTime();
+}, 5000);
+
+// Add snowflakes, custom colors, etc... if autoTheming is enabled
 if (store.get('toggleAutoTheming') === 'enabled') {
     if (month == '12') {
         snowflakes.style.display = 'block';
     }
 }
 
+// Set shortcut to CTRL+N to open settings.
 Mousetrap.bind(['command+n', 'ctrl+n'], function () {
-    let settingsWindow
+    let settingsWindow;
     settingsWindow = new BrowserWindow({
-        width: 1024,
-        height: 768,
-    })
+        width: 800,
+        height: 600,
+    });
     settingsWindow.on('close', function () {
         settingsWindow = null
-    })
-    settingsWindow.loadURL('file://' + __dirname + '/src/html/settings.html')
+    });
+    settingsWindow.setMenuBarVisibility(false);
+    settingsWindow.loadURL('file://' + __dirname + '/src/html/settings.html');
     settingsWindow.show();
     if (runningInDevMode) {
         settingsWindow.webContents.openDevTools();
     }
 });
 
+// Show date and time in main UI
 function startTime() {
     var today = new Date();
     var day = today.getDate();
@@ -55,9 +75,25 @@ function startTime() {
     var t = setTimeout(startTime, 500);
 }
 
+// If mounth, hour or second is <10, add 0 before.
 function checkTime(i) {
     if (i < 10) {
         i = "0" + i
     };
     return i;
+}
+
+function getAllStoredValues() {
+    // School name and logo are already being loaded, no need to create another variable for them
+    var dbg_storedValue_edupageServerAddress = store.get('edupageServerAddress');
+    var dbg_storedValue_additionalWebsites = store.get('additionalWebPages');
+    var dbg_storedValue_autoTheming = store.get('toggleAutoTheming');
+    var dbg_storedValue_passwordState = store.get('applicationPassowrd');
+    console.log('[DEBUG] Retrieving stored value for: schoolName            => ' + storedValue_schoolName);
+    console.log('[DEBUG] Retrieving stored value for: schoolLogoPath        => ' + storedValue_appIcon);
+    console.log('[DEBUG] Retrieving stored value for: edupageServerAddress  => ' + dbg_storedValue_edupageServerAddress);
+    console.log('[DEBUG] Retrieving stored value for: additionalWebsites    => ' + dbg_storedValue_additionalWebsites);
+    console.log('[DEBUG] Retrieving stored value for: toggleAutoTheming     => ' + dbg_storedValue_autoTheming);
+    console.log('[DEBUG] Retrieving stored value for: applicationPassword   => ' + dbg_storedValue_passwordState);
+
 }

@@ -3,196 +3,39 @@
 html,
 body {
     height: 100%;
-    overflow: hidden;
+    width: 100%;
     background-color: #fafafa;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
 
-.tab_content_wrapper {
-    display: flex;
-    flex-flow: wrap;
-    margin-left: 16px;
-    margin-right: 16px;
+.wrapper {
+    height: 100%;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {
-    margin: 8px;
-    display: inline-block;
-}
-
-.generic_l_title_r_setting_wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.generic_l_title_r_setting_wrapper_buttonsOnly {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.l_title_header {
     margin: 16px;
-    margin-bottom: -8px;
-    color: #212121;
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 300;
 }
 
-.r_setting_form {
-    margin: 16px;
-    max-width: 97%;
-}
-
-#overview_card_container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-#v-pills-tabs {
-    margin: 16px;
-    height: 100%;
-    min-width: 20%;
-}
-
-#v-pills-tabContent {
-    height: auto;
-    width: 100%;
-    overflow: auto;
-}
-
-.tab-content h1,
-h4 {
-    display: flex;
-    justify-content: center;
-    color: #212121;
-}
-
-hr {
+.card__section-header{
     margin-left: 16px;
-    margin-right: 16px;
-    color: #bdbdbd;
 }
 
-h1,
-h2 {
-    margin: 12px;
-    font-family: 'Ubuntu', sans-serif;
-    color: #212121;
+#btn_save_settings {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 16px;
 }
 
-.lds-roller {
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
-}
-
-.lds-roller div {
-    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    transform-origin: 32px 32px;
-}
-
-.lds-roller div:after {
-    content: " ";
-    display: block;
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #2196F3;
-    margin: -3px 0 0 -3px;
-}
-
-.lds-roller div:nth-child(1) {
-    animation-delay: -0.036s;
-}
-
-.lds-roller div:nth-child(1):after {
-    top: 50px;
-    left: 50px;
-}
-
-.lds-roller div:nth-child(2) {
-    animation-delay: -0.072s;
-}
-
-.lds-roller div:nth-child(2):after {
-    top: 54px;
-    left: 45px;
-}
-
-.lds-roller div:nth-child(3) {
-    animation-delay: -0.108s;
-}
-
-.lds-roller div:nth-child(3):after {
-    top: 57px;
-    left: 39px;
-}
-
-.lds-roller div:nth-child(4) {
-    animation-delay: -0.144s;
-}
-
-.lds-roller div:nth-child(4):after {
-    top: 58px;
-    left: 32px;
-}
-
-.lds-roller div:nth-child(5) {
-    animation-delay: -0.18s;
-}
-
-.lds-roller div:nth-child(5):after {
-    top: 57px;
-    left: 25px;
-}
-
-.lds-roller div:nth-child(6) {
-    animation-delay: -0.216s;
-}
-
-.lds-roller div:nth-child(6):after {
-    top: 54px;
-    left: 19px;
-}
-
-.lds-roller div:nth-child(7) {
-    animation-delay: -0.252s;
-}
-
-.lds-roller div:nth-child(7):after {
-    top: 50px;
-    left: 14px;
-}
-
-.lds-roller div:nth-child(8) {
-    animation-delay: -0.288s;
-}
-
-.lds-roller div:nth-child(8):after {
-    top: 45px;
-    left: 10px;
-}
-
-@keyframes lds-roller {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+.buttonContainer_horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

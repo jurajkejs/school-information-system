@@ -12,164 +12,50 @@
 </head>
 
 <body>
+    <div class="navbar fixed-top navbar-expand-lg navbar-light bg-dark text-light shadow-lg">
+        <img src="../../resources/icons/app.png" id="app_icon" width="30" height="30" class="d-inline-block align-top"
+            alt="">
+        <a class="navbar-brand" id="navbar_application_title" style="margin-left: 8px !important; font-weight: 300;">Školský
+            informačný systém | Nastavenia</a>
+    </div>
     <div class="wrapper">
-        <div class="nav flex-column nav-pills" id="v-pills-tabs" role="tablist" aria-orientation="vertical" style="max-width: 25%;">
-            <input disabled class="form-control" type="text" placeholder="Hľadať nastavenia" style="margin-bottom: 15px; margin-top: 4px;">
-            <a class="nav-link active" id="v-pills-overview-tab" data-toggle="pill" href="#v-pills-overview" role="tab"
-                aria-controls="v-pills-overview" aria-selected="true"><i class="fas fa-th"></i> Prehľad</a>
-            <a class="nav-link" id="v-pills-school-tab" data-toggle="pill" href="#v-pills-school" role="tab"
-                aria-controls="v-pills-school" aria-selected="false"><i class="fas fa-school"></i> Škola</a>
-            <a class="nav-link" id="v-pills-application-tab" data-toggle="pill" href="#v-pills-application" role="tab"
-                aria-controls="v-pills-application" aria-selected="false"><i class="fas fa-cog"></i> Aplikácia</a>
-            <hr>
-            <button type="button" onclick="saveSettings();" class="btn btn-outline-success"><i class="fas fa-check"></i>
-                Uložiť nastavenia</button>
-            <hr>
-            <div id="successAlert" style="display: none;">
-                <div class="alert alert-success" role="alert">
-                    Hotovo! Nastavenia boli uložené, aplikujú sa pri najbližšom sputení.
-                </div>
-                <button type="button" onclick="" class="btn btn-outline-danger"><i class="fas fa-spin"></i>
-                    Reštartovať teraz</button>
+        <h6 class="card__section-header" style="margin-top: 72px;">Škola</h6>
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h5 class="card-title">Názov školy</h5>
+                <input autofocus onformchange="storeSettings_schoolName();" class="form-control" type="text" id="form__school-name" placeholder="Názov školy">
+                <hr>
+                <h5 class="card-title">Logo školy</h5>
+                <form>
+                    <div class="form-group">
+                        <label for="form__school-logo-filename">Vyberte súbor s logom školy (.png/w)</label>
+                        <input type="file" class="form-control-file" id="form__school-logo-filename">
+                    </div>
+                </form>
+                <hr>
+                <h5 class="card-title">Adresa serveru Edupage</h5>
+                <input class="form-control" type="text" id="form__edupage-server" placeholder="Edupage server (https://www.skola.edupage.org)">
+                <hr>
+                <h5 class="card-title">Dodatočné web stránky</h5>
+                <input class="form-control" type="text" id="form__additional-webpages-1" style="margin-bottom: 8px;"
+                    placeholder="1/3 (Napr.: https://www.getsol.us)">
+                <input class="form-control" type="text" id="form__additional-webpages-2" style="margin-bottom: 8px;"
+                    placeholder="2/3">
+                <input class="form-control" type="text" id="form__additional-webpages-3" placeholder="3/3">
             </div>
-            <button type="button" onclick="enableMotdInTitle();" class="btn bg-transparent text-white">have a nice day!</button>
         </div>
-
-        <div class="tab-content shadow" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-overview" role="tabpanel" aria-labelledby="v-pills-overview-tab">
-                <h1>Prehľad</h1>
+        <h6 class="card__section-header" style="margin-top: 32px;">Aplikácia</h6>
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <div class="buttonContainer_horizontal">
+                    <button type="button" onclick="toggleAutoTheming();" class="btn btn-primary">Povoliť autoTheming</button>
+                    <button type="button" onclick="resetSettings();" class="btn btn-warning">Reset nastavení</button>
+                </div>
                 <hr>
-                <div id="overview_card_container" style="margin: 8px;">
-                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Škola</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Názov školy</h5>
-                            <div class="lds-roller" id="loadSpinner_card_schoolName">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <p id="overviewCard_schoolName" class="card-text"></p>
-                        </div>
-                    </div>
-                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Škola</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Edupage server</h5>
-                            <div class="lds-roller" id="loadSpinner_card_edupageServerAddress">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <p id="overviewCard_edupageServer" class="card-text"></p>
-                        </div>
-                    </div>
-                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Škola</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Dodatočné stránky</h5>
-                            <div class="lds-roller" id="loadSpinner_card_additionalPages">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <p id="overviewCard_additionalPages" class="card-text"></p>
-                        </div>
-                    </div>
-                </div>
-                <div id="overview_card_container" style="margin: 8px;">
-                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Aplikácia</div>
-                        <div class="card-body">
-                            <h5 class="card-title">autoTheming</h5>
-                            <div class="lds-roller" id="loadSpinner_card_autoTheming">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <p id="overviewCard_autoTheming" class="card-text"></p>
-                        </div>
-                    </div>
-                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Aplikácia</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Heslo</h5>
-                            <div class="lds-roller" id="loadSpinner_card_password">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <p id="overviewCard_passwordState" class="card-text"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="v-pills-school" role="tabpanel" aria-labelledby="v-pills-school-tab">
-                <h1>Škola</h1>
-                <hr>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Názov školy</h3>
-                    <input class="form-control r_setting_form" type="text" id="input_school_name" placeholder="Napr. Haha, škola">
-                </div>
-                <div class="generic_l_title_r_setting_wrapper_buttonsOnly">
-                    <h3 class="l_title_header">Logo školy</h3>
-                    <button type="button" onclick="toggleAutoTheming();" class="btn btn-outline-primary form-control"
-                        style="max-width: 256px; margin: 16px;">Načítať logo</button>
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Edupage server</h3>
-                    <input class="form-control r_setting_form" type="text" id="input_edupage_server" placeholder="Napr. https://spspb.edupage.org">
-                </div>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <h3 class="l_title_header">Dodatočné stránky</h3>
-                    <textarea class="form-control r_setting_form" type="text" id="input_additional_pages" placeholder="Stránky na zobrazenie. Oddeľujte čiarkou na konci adresy"></textarea>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="v-pills-application" role="tabpanel" aria-labelledby="v-pills-application-tab">
-                <h1>Aplikácia</h1>
-                <hr>
-                <div class="generic_l_title_r_setting_wrapper">
-                    <div class="generic_l_title_r_setting_wrapper_buttonsOnly">
-                        <h3 class="l_title_header">Automatická zmena témy</h3>
-                        <button type="button" onclick="toggleAutoTheming();" class="btn btn-outline-primary form-control"
-                            style="max-width: 256px; margin: 16px;">Povoliť autoTheming</button>
-                    </div>
-                    <h3 class="l_title_header">Heslo</h3>
-                    <input class="form-control r_setting_form" id="application_password1" type="password" placeholder="Prístupové heslo">
-                    <input class="form-control r_setting_form" id="application_password2" type="password" style="margin-top: -8px;"
-                        placeholder="Prístupové heslo (opäť)">
-                </div>
-                <div class="generic_l_title_r_setting_wrapper_buttonsOnly">
-                    <h3 class="l_title_header">Obnoviť nastavenia aplikácie</h3>
-                    <button type="button" onclick="resetSettings();" class="btn btn-outline-danger form-control" style="max-width: 128px; margin: 16px;">Obnoviť</button>
-                </div>
+                <h5 class="card-title">Informácie o verziách</h5>
+                <p id="version_info_chromium">Chromium: <script>document.write(process.versions.chrome)</script></p>
+                <p id="version_info_nodejs">NodeJS: <script>document.write(process.versions.node)</script></p>
+                <p id="version_info_electron">Electron: <script>document.write(process.versions.electron)</script></p>
             </div>
         </div>
     </div>
@@ -183,10 +69,11 @@
     <script async src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script async src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script async src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script defer src="../settings.js"></script>
+    <script src="../settings.js"></script>
     <script>
         if (window.module) module = window.module;
     </script>
+
     <!-- It's time to kick gum and chew ass. And I'm all out of ass. -Dick Kickem -->
     <!-- https://www.youtube.com/watch?v=gnVag2Nwaug -->
 </body>
