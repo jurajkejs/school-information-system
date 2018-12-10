@@ -14,7 +14,7 @@ var form__edupageServer = document.getElementById('form__edupage-server');
 var stored__schoolName = store.get('schoolName');
 var stored__schoolLogoFileName = store.get('schoolLogoFileName');
 var stored__edupageServerAddress = store.get('edupageServerAddress');
-var storedValue_toggleAutoTheming = store.get('toggleAutoTheming');
+var stored__toggleAutoTheming = store.get('toggleAutoTheming');
 
 Mousetrap.bind(['command+e', 'ctrl+e'], function () {
     var mlpURL = 'https://mylittlepony.hasbro.com/worldwide' // Come get some!
@@ -38,7 +38,12 @@ $(form__schoolName).on('focusout', function() {
 });
 
 $(form__schoolLogoFileName).change(function () {
-    console.log(form__schoolLogoFileName.files[0].path);
+    if (form__schoolLogoFileName.value == '' || stored__schoolLogoFileName == '*') {
+        console.log('saveSettings() => Skipping schoolLogoFilename')
+    } else {
+        console.log('saveSettings() => Saving: schoolLogoFileName');
+        store.set('schoolLogoFileName',form__schoolLogoFileName.files[0].path);
+    }
 });
 
 $(form__edupageServer).on('focusout', function() {
@@ -51,7 +56,7 @@ $(form__edupageServer).on('focusout', function() {
 });
 
 function toggleAutoTheming() {
-    if (storedValue_toggleAutoTheming == 'enabled') {
+    if (stored__toggleAutoTheming == 'enabled') {
         console.log('toggleAutoTheming() => Disabling autoTheming');
         store.set('toggleAutoTheming', 'disabled');
     } else {
