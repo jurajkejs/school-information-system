@@ -1,10 +1,5 @@
 const Store = require('electron-store');
 const store = new Store();
-const {
-    app,
-    BrowserWindow,
-    electron
-} = require('electron');
 
 var $ = jQuery = require('jquery');
 var Mousetrap = require('mousetrap');
@@ -16,6 +11,7 @@ var stored__schoolLogoFileName = store.get('schoolLogoFileName');
 var stored__edupageServerAddress = store.get('edupageServerAddress');
 var stored__toggleAutoTheming = store.get('toggleAutoTheming');
 
+// Bind CTRL+E (or command+e) for easter egg
 Mousetrap.bind(['command+e', 'ctrl+e'], function () {
     var mlpURL = 'https://mylittlepony.hasbro.com/worldwide' // Come get some!
     if (store.get('motdInTitle') == 'yep') {
@@ -28,6 +24,7 @@ Mousetrap.bind(['command+e', 'ctrl+e'], function () {
     require('electron').shell.openExternal(mlpURL)
 });
 
+// saveSettings() => schoolName
 $(form__schoolName).on('focusout', function() {
     if (stored__schoolName == '*') {
         console.log('saveSettings() => Skipping: schoolName')
@@ -37,24 +34,27 @@ $(form__schoolName).on('focusout', function() {
     }
 });
 
+// saveSettings() => schoolLogoFilename
 $(form__schoolLogoFileName).change(function () {
     if (form__schoolLogoFileName.value == '' || stored__schoolLogoFileName == '*') {
         console.log('saveSettings() => Skipping schoolLogoFilename')
     } else {
-        console.log('saveSettings() => Saving: schoolLogoFileName');
+        console.log('saveSettings() => Saving: schoolLogoFileName')
         store.set('schoolLogoFileName',form__schoolLogoFileName.files[0].path);
     }
 });
 
+// saveSettings() => edupageServerAddress
 $(form__edupageServer).on('focusout', function() {
     if (form__edupageServer.value == '' || stored__edupageServerAddress == '*') {
         console.log('saveSettings() => Skipping: edupageServerAddress')
     } else {
         console.log('saveSettings() => Saving: edupageServerAddress')
-        store.set('edupageServerAddress', form__edupageServer.value);
+        store.set('edupageServerAddress', form__edupageServer.value)
     }
 });
 
+// toggleAutoTheming() => toggleAutoTheming
 function toggleAutoTheming() {
     if (stored__toggleAutoTheming == 'enabled') {
         console.log('toggleAutoTheming() => Disabling autoTheming');
