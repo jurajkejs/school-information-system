@@ -5,7 +5,8 @@
   "main": "./src/Index.js",
   "scripts": {
     "start": "electron .",
-    "package-win": "electron-packager . school-information-system --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=TT --version-string.FileDescription=TT --version-string.ProductName=\"Školský informačný systém\""
+    "package-win": "electron-packager . school-information-system --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=dist/ --version-string.CompanyName=TT --version-string.FileDescription=TT --version-string.ProductName=\"Školský informačný systém\"",
+    "package-linux": "electron-packager . school-information-system --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/linux/512x512.png --prune=true --out=dist/"
   },
   "repository": {
     "type": "git",

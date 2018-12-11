@@ -119,6 +119,7 @@ $RECYCLE.BIN/
 
 # Electron packager output
 release-builds/
+dist/
 
 # End of https://www.gitignore.io/api/visualstudiocode,windows,node
 
