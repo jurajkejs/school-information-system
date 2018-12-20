@@ -26,6 +26,7 @@ function createWindow() {
         app.quit();
     })
     win.setResizable(true);
+    win.maximize();
 }
 app.on('ready', createWindow)
 app.on('window-all-closed', () => {

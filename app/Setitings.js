@@ -55,6 +55,8 @@ $(form__edupageServer).on('focusout', function() {
 });
 
 // toggleAutoTheming() => toggleAutoTheming
+// Dec: christmas shit
+// Apr: UNICRORNS!
 function toggleAutoTheming() {
     if (stored__toggleAutoTheming == 'enabled') {
         console.log('toggleAutoTheming() => Disabling autoTheming');

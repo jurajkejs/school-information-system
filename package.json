@@ -2,7 +2,7 @@
   "name": "school-information-system",
   "version": "0.1.2-1",
   "description": "Nástenka s informáciami pre žiakov",
-  "main": "./src/Index.js",
+  "main": "app/index.js",
   "scripts": {
     "start": "electron .",
     "package-win": "electron-packager . school-information-system --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=dist/ --version-string.CompanyName=TT --version-string.FileDescription=TT --version-string.ProductName=\"Školský informačný systém\"",
