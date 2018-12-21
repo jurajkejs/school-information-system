@@ -9,7 +9,7 @@ var form__edupageServer = document.getElementById('form__edupage-server');
 var stored__schoolName = store.get('schoolName');
 var stored__schoolLogoFileName = store.get('schoolLogoFileName');
 var stored__edupageServerAddress = store.get('edupageServerAddress');
-var stored__toggleAutoTheming = store.get('toggleAutoTheming');
+var stored__toggleAutoTheming = store.get('autoThemingState');
 
 // Bind CTRL+E (or command+e) for easter egg
 Mousetrap.bind(['command+e', 'ctrl+e'], function () {
@@ -39,8 +39,8 @@ $(form__schoolLogoFileName).change(function () {
     if (form__schoolLogoFileName.value == '' || stored__schoolLogoFileName == '*') {
         console.log('saveSettings() => Skipping schoolLogoFilename')
     } else {
-        console.log('saveSettings() => Saving: schoolLogoFileName')
-        store.set('schoolLogoFileName',form__schoolLogoFileName.files[0].path);
+        console.log('saveSettings() => Saving: schoolLogo')
+        store.set('schoolLogo',form__schoolLogoFileName.files[0].path);
     }
 });
 
@@ -57,13 +57,13 @@ $(form__edupageServer).on('focusout', function() {
 // toggleAutoTheming() => toggleAutoTheming
 // Dec: christmas shit
 // Apr: UNICRORNS!
-function toggleAutoTheming() {
+function switchAutoThemingState() {
     if (stored__toggleAutoTheming == 'enabled') {
-        console.log('toggleAutoTheming() => Disabling autoTheming');
-        store.set('toggleAutoTheming', 'disabled');
+        console.log('autoThemingState() => Disabling autoTheming');
+        store.set('autoThemingState', 'disabled');
     } else {
         console.log('toggleAutoTheming() => Enabling autoTheming');
-        store.set('toggleAutoTheming', 'enabled');
+        store.set('autoThemingState', 'enabled');
     }
 }
 
@@ -79,5 +79,5 @@ function resetSettings() {
     console.log('resetSettings() => Restoring to default value: motdInTitle');
     store.set('motdInTitle', 'nope');
     console.log('resetSettings() => Restoring to default value: autoTheming');
-    store.set('toggleAutoTheming', 'disabled')
+    store.set('autoThemingState', 'disabled')
 }

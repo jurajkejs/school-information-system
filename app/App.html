@@ -14,12 +14,12 @@
 <body>
     <!-- Window header -->
     <div class="navbar navbar-expand-lg fixed-top navbar-light bg-dark text-light shadow">
-        <img src="../assets/icons/app.png" id="app_icon" width="30" height="30" class="d-inline-block align-top" alt="">
-        <a class="navbar-brand" id="navbar_application_title" style="margin-left: 8px !important; font-weight: 300;">Školský
+        <img src="../assets/icons/app.png" id=application__navbar_appIcon" width="30" height="30" class="d-inline-block align-top" alt="Application icon">
+        <a class="navbar-brand" id="application__navbar_appTitle" style="margin-left: 8px !important; font-weight: 300;">Školský
             informačný systém</a>
     </div>
-    <div class="text-center align-middle" id="overlay">
-        <div class="align-middle" id="overlayText">
+    <div class="text-center align-middle" id="application__loaderOverlay">
+        <div class="align-middle" id="application__loaderOverlay__Container">
             <div class="lds-ring">
                 <div></div>
                 <div></div>
@@ -27,26 +27,28 @@
                 <div></div>
             </div>
             <br>
-            <h1 id="loadStatus_text">Prebieha spúšťanie</h1>
+            <h1 id="application__loaderOverlay__Text_Title">Prebieha spúšťanie</h1>
+            <h3 id="application__loaderOverlay__Text_Substitle"></h3>
         </div>
     </div>
 
     <!-- Wrapper -->
     <div id="wrapper" class="wrapper blur">
         <div class="sidebar shadow-lg">
-            <!-- Sidebar -->
-            <!-- Date & Time -->
-            <div class="card text-center shadow">
+            <div class="card text-center shadow bg-white" id="application__sidebar__card_dateTime_container">
                 <div class="card-body">
-                    <h4 id="dateTime" style="margin-top: 8px;"></h4>
+                    <h3 id="application__sidebar__card_dateTime" class="text-center" style="margin-top: 8px;"></h3>
                 </div>
             </div>
-            <div class="card text-center shadow">
+            <div class="card text-center shadow bg-white" id="application__sidebar__card_classNumber_container">
                 <div class="card-body">
-                    <h4 id="classNumber"></h4>
+                    <h3 id="application__sidebar__card_classNumber_Icon"></h3><span>
+                        <h3 id="application__sidebar__card_classNumber_Title">1. hodina</h3>
+                    </span>
+                    <p id="application__sidebar__card_classNumber_Upcomming">Nasleduje <i class='fas fa-arrow-right'></i> 5-min. prestávka</p>
                 </div>
             </div>
-            <div class="card text-center shadow">
+            <div class="card text-center shadow bg-white" id="application__sidebar__card_weather_container">
                 <div class="card-body">
                     <a class="weatherwidget-io" href="https://forecast7.com/sk/49d1118d45/povazska-bystrica/" data-font="Roboto"
                         data-icons="Climacons Animated" data-days="3" data-theme="dark" data-basecolor="" data-shadow="#bdbdbd"
@@ -57,7 +59,7 @@
         </div>
         <div class="content">
             <!-- Content -->
-            <webview id="webview" src="http://www.spspb.edupage.org/substitution/?"></webview>
+            <webview id="application__content_webview" src="http://www.spspb.edupage.org/substitution/?"></webview>
         </div>
     </div>
 
