@@ -16,7 +16,7 @@ var application_mothInTitle_Strings = [
     '(Vodka distilled from milk)',
     '(People who sit on the front row at the cinema technically get to see the movie first)',
     '(s̮̪͚̯̺̎e̩͎͎͚͈̩n̙͎̫͑ͩ̍͑d̳̘͔̘ͦ̇ͧ ͎̭̟͎͂͐͋̔͌̆̚n̫͈̖̪̬̈́ͤ͆̓u̱̯̳̺̮͍̫̔͛ͦ͒̄̑d͇͈̦̬͇̼̹̓͊̋̓̅ͭ̚e͖̪̰͈͂̈̇̒͊̾́s̤̪͓̰̭̉ͣ͛̚ͅ)',
-    'ｈａｖｅ　ａ　ｎｉｃｅ　ｄａｙ　ヺ唄円日'
+    '(ｈａｖｅ　ａ　ｎｉｃｅ　ｄａｙ　ヺ唄円日)'
 ]
 var application_mothInTitle_Strings_selected = Math.floor(Math.random() * application_mothInTitle_Strings.length);
 

@@ -15,10 +15,11 @@ var application_storedSettings_web_EdupageServer = settingsStorage.get('edupageS
 var application_storedSettings_web_aPages1 = settingsStorage.get('aPages1')
 var application_storedSettings_web_aPages2 = settingsStorage.get('aPages2')
 var application_storedSettings_web_aPages3 = settingsStorage.get('aPages3')
+var application_storedSettings_web_allPages_interval = 10000
 var application_storedSettings_app_autoThemingState = settingsStorage.get('autoThemingState')
 
 /* Array of additional websites to be used in showWebPages() */
-var allPages = [
+var allPagesArray = [
     application_storedSettings_web_EdupageServer,
     application_storedSettings_web_aPages1,
     application_storedSettings_web_aPages2,
@@ -167,21 +168,7 @@ function applicationStartup() {
 
     // Start page rotation
     console.log('[mainUI::applicationStartup] Setting up: loadWebPages()')
-    if (application_storedSettings_web_EdupageServer == 'undefined' &&
-        application_storedSettings_web_aPages1 == 'undefined' &&
-        application_storedSettings_web_aPages2 == 'undefined' &&
-        application_storedSettings_web_aPages3 == 'undefined' ||
-        application_storedSettings_web_EdupageServer == '' &&
-        application_storedSettings_web_aPages1 == '' &&
-        application_storedSettings_web_aPages2 == '' &&
-        application_storedSettings_web_aPages3 == '') {
-        application_mainUI_content_webview.src = 'http://www.ayy-almo.com'
-    } else {
-        // Load websites
-        setInterval(function(){ 
-            loadWebPages()   
-        }, 10000);
-    };
+    loadWebPages()
 
     // autoTheming
     console.log('[mainUI::applicationStartup] Setting up: startAutoTheming()')
@@ -206,12 +193,85 @@ function applicationStartup() {
 };
 
 /*
+    Function: startAutoTheming()
+    ======================================
+    Starts the autoTheming function if enabled in settings.
+*/
+async function startAutoTheming() {
+    var cm = getCurrentDateTime()[1]
+    if (application_storedSettings_app_autoThemingState === 'enabled') {
+        switch (true) {
+            case (cm == '12'):
+                application_mainUI_snowflakes.style.display = 'block'
+                $('#application__sidebar__card_dateTime_container').addClass('border-success')
+                $('#application__sidebar__card_classNumber_container').addClass('border-warning')
+                $('#application__sidebar__card_weather_container').addClass('border-danger')
+                break;
+            default:
+                break;
+        }
+    }
+};
+
+/*
+    Function: loadWebPages()
+    ========================
+    Loads stored edupage server address and 3 additional ones, 
+    and keeps loading each one after like 10 seconds
+*/
+async function loadWebPages() {
+    // Initial setup
+    removeWhitespacesFromArray()
+    if (allPagesIndex > 3) {
+        allPagesIndex = 0;
+    }
+    const webpageToLoad = allPagesArray[allPagesIndex];
+    allPagesIndex++;
+    application_mainUI_content_webview.src = webpageToLoad
+
+    // Continues as interval every n seconds
+    setInterval(function () {
+        if (allPagesIndex > 3) {
+            allPagesIndex = 0;
+        }
+        const webpageToLoad = allPagesArray[allPagesIndex];
+        allPagesIndex++;
+        console.log('[mainUI::loadWebPages] Navigating to: ' + webpageToLoad)
+        application_mainUI_content_webview.src = webpageToLoad
+    }, application_storedSettings_web_allPages_interval)
+};
+
+/*
+    Function: checkStoredWebsitesState()
+    ====================================
+    Checks if stored values for webpages contain any whitespaces, and if yes, removes them
+*/
+function removeWhitespacesFromArray() {
+    allPagesArray = allPagesArray.filter(function(str) {
+        return /\S/.test(str);
+    });
+}
+
+
+/*
+    Function: getDebugData()
+    ========================
+    Logs to console every stored value, function returns and version info.
+*/
+function getDebugData() {
+    console.log(
+        "application_defaults_appName: " + application_defaults_appName + "\n" +
+        "application_defaults_appIcon: " + application_defaults_appIcon + "\n"
+    )
+};
+
+/*
     Function: showLessonState()
     ==========================
     Checks what lesson is ongoing (if any) and sets it's value in the main UI.
     TODO: Add option to customize in settings.
 */
-function showLessonState() {
+async function showLessonState() {
     var currentHourMinutes = getCurrentDateTime()[3] + '' + getCurrentDateTime()[4];
     setInterval(function () {
         showLessonState()
@@ -319,64 +379,4 @@ function showLessonState() {
             application_mainUI_card_classInfo_currentClassName.innerHTML = 'Koniec vyučovania'
             application_mainUI_card_classInfo_upcomingClassName.innerHTML = 'You can\'t rest while enemies are nearby'
     };
-};
-
-/*
-    Function: startAutoTheming()
-    ======================================
-    Starts the autoTheming function if enabled in settings.
-*/
-function startAutoTheming() {
-    var cm = getCurrentDateTime()[1]
-    if (application_storedSettings_app_autoThemingState === 'enabled') {
-        switch (true) {
-            case (cm == '12'):
-                application_mainUI_snowflakes.style.display = 'block'
-                $('#application__sidebar__card_dateTime_container').addClass('border-success')
-                $('#application__sidebar__card_classNumber_container').addClass('border-warning')
-                $('#application__sidebar__card_weather_container').addClass('border-danger')
-                break;
-            default:
-                break;
-        }
-    }
-};
-
-/*
-    Function: showSubstitutionForNextDay()
-    ======================================
-    Edupage only. Clicks in substitution for next day if available.
-*/
-function showSubstitutionForNextDay() {
-    var currentDate_ep = getCurrentDateTime()[0] + '.' + getCurrentDateTime()[1] + '.'
-    // Think twice about this you fag. 
-    // Google: click div from remote website inside webiew.
-};
-
-/*
-    Function: loadWebPages()
-    ========================
-    Loads stored edupage server address and 3 additional ones, 
-    and keeps loading each one after like 10 seconds
-*/
-async function loadWebPages() {
-    if (allPagesIndex > 3) {
-        allPagesIndex = 0;
-    }
-    const webpageToLoad = allPages[allPagesIndex];
-    allPagesIndex++;
-    console.log(webpageToLoad)
-    application_mainUI_content_webview.src = webpageToLoad
-};
-
-/*
-    Function: getDebugData()
-    ========================
-    Logs to console every stored value, function returns and version info.
-*/
-function getDebugData() {
-    console.log(
-        "application_defaults_appName: " + application_defaults_appName + "\n" +
-        "application_defaults_appIcon: " + application_defaults_appIcon + "\n"
-    )
 };
