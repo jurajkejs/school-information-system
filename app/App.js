@@ -2,6 +2,7 @@ const electron = require('electron')
 const BrowserWindow = electron.remote.BrowserWindow
 const settingsStorage = new(require('electron-store'))
 const Mousetrap = require('mousetrap')
+const runningInDevMode = require('electron-is-dev');
 
 /* Application defaults */
 const application_defaults_appName = "Školský informačný systém"
@@ -10,13 +11,20 @@ const application_defaults_appIcon = "../assets/app.png"
 /* Stored settings */
 var application_storedSettings_schoolName = settingsStorage.get('schoolName')
 var application_storedSettings_schoolLogo = settingsStorage.get('schoolLogoFileName')
-/* Unused vars, for now. Except autoTheming */
 var application_storedSettings_web_EdupageServer = settingsStorage.get('edupageServerAddress')
 var application_storedSettings_web_aPages1 = settingsStorage.get('aPages1')
 var application_storedSettings_web_aPages2 = settingsStorage.get('aPages2')
 var application_storedSettings_web_aPages3 = settingsStorage.get('aPages3')
-var application_storedSettings_app_motdInTitle = settingsStorage.get('motdInTitle')
 var application_storedSettings_app_autoThemingState = settingsStorage.get('autoThemingState')
+
+/* Array of additional websites to be used in showWebPages() */
+var allPages = [
+    application_storedSettings_web_EdupageServer,
+    application_storedSettings_web_aPages1,
+    application_storedSettings_web_aPages2,
+    application_storedSettings_web_aPages3
+]
+let allPagesIndex = 0
 
 /* UI elements - App.html -> mainUI */
 var application_mainUI_appIcon = document.getElementById('application__navbar_appIcon')
@@ -27,6 +35,7 @@ var application_mainUI_card_dateTime_innerText = document.getElementById('applic
 var application_mainUI_card_classInfo_currentClassIcon = document.getElementById('application__sidebar__card_classNumber_Icon')
 var application_mainUI_card_classInfo_currentClassName = document.getElementById('application__sidebar__card_classNumber_Title')
 var application_mainUI_card_classInfo_upcomingClassName = document.getElementById('application__sidebar__card_classNumber_Upcomming')
+var application_mainUI_content_webview = document.getElementById('application__content_webview')
 
 /* UI elements - Additional */
 var application_mainUI_snowflakes = document.getElementById('snowflakes')
@@ -73,16 +82,16 @@ function getCurrentDateTime() {
     Self-explanatory. Shows current date and time in main UI.
 */
 function showCurrentDateTimeInMainUI() {
-    var cdt = getCurrentDateTime()[0] + '.' +
-        getCurrentDateTime()[1] + '.' +
-        getCurrentDateTime()[2] + ' ' +
-        getCurrentDateTime()[3] + ':' +
-        getCurrentDateTime()[4]
-    application_mainUI_card_dateTime_innerText.innerHTML = cdt
     setInterval(function () {
+        var cdt = getCurrentDateTime()[0] + '.' +
+            getCurrentDateTime()[1] + '.' +
+            getCurrentDateTime()[2] + ' ' +
+            getCurrentDateTime()[3] + ':' +
+            getCurrentDateTime()[4] + ':' +
+            getCurrentDateTime()[5]
         application_mainUI_card_dateTime_innerText.innerHTML = cdt
-    }, 10000)
-}
+    }, 1000)
+};
 
 /*
     Function: prettifyLTTValues()
@@ -115,13 +124,13 @@ function applicationStartup() {
         application_mainUI_appTitle.innerHTML = application_defaults_appName
     } else {
         application_mainUI_appTitle.innerHTML = application_storedSettings_schoolName
-    }
+    };
 
     // Set application icon (school logo)
     console.log('[mainUI::applicationStartup] Setting up: schoolLogo')
     if (!application_storedSettings_schoolLogo == '*' || !application_storedSettings_schoolLogo == '') {
         application_mainUI_appIcon.src = application_storedSettings_schoolLogo
-    }
+    };
 
     // Keyboard shortcuts
     // Settings
@@ -155,6 +164,24 @@ function applicationStartup() {
     // Show current date and time
     console.log('[mainUI::applicationStartup] Setting up: showCurrentDateTimeInMainUI()')
     showCurrentDateTimeInMainUI()
+
+    // Start page rotation
+    console.log('[mainUI::applicationStartup] Setting up: loadWebPages()')
+    if (application_storedSettings_web_EdupageServer == 'undefined' &&
+        application_storedSettings_web_aPages1 == 'undefined' &&
+        application_storedSettings_web_aPages2 == 'undefined' &&
+        application_storedSettings_web_aPages3 == 'undefined' ||
+        application_storedSettings_web_EdupageServer == '' &&
+        application_storedSettings_web_aPages1 == '' &&
+        application_storedSettings_web_aPages2 == '' &&
+        application_storedSettings_web_aPages3 == '') {
+        application_mainUI_content_webview.src = 'http://www.ayy-almo.com'
+    } else {
+        // Load websites
+        setInterval(function(){ 
+            loadWebPages()   
+        }, 10000);
+    };
 
     // autoTheming
     console.log('[mainUI::applicationStartup] Setting up: startAutoTheming()')
@@ -324,7 +351,7 @@ function showSubstitutionForNextDay() {
     var currentDate_ep = getCurrentDateTime()[0] + '.' + getCurrentDateTime()[1] + '.'
     // Think twice about this you fag. 
     // Google: click div from remote website inside webiew.
-}
+};
 
 /*
     Function: loadWebPages()
@@ -332,7 +359,15 @@ function showSubstitutionForNextDay() {
     Loads stored edupage server address and 3 additional ones, 
     and keeps loading each one after like 10 seconds
 */
-function loadWebPages() {}
+async function loadWebPages() {
+    if (allPagesIndex > 3) {
+        allPagesIndex = 0;
+    }
+    const webpageToLoad = allPages[allPagesIndex];
+    allPagesIndex++;
+    console.log(webpageToLoad)
+    application_mainUI_content_webview.src = webpageToLoad
+};
 
 /*
     Function: getDebugData()
