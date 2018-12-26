@@ -5,80 +5,183 @@
     <title>Nastavenia</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/simplebar/dist/simplebar.min.css">
+    <link rel="stylesheet" href="../node_modules/material-design-lite/material.min.css">
     <link rel="stylesheet" href="./Settings.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-    <div class="navbar fixed-top navbar-expand-lg navbar-light bg-dark text-light shadow-lg">
-        <img src="../assets/icons/app.png" id="app_icon" width="30" height="30" class="d-inline-block align-top" alt="">
-        <a class="navbar-brand" id="navbar_application_title" style="margin-left: 8px !important; font-weight: 300;">Školský
-            informačný systém | Nastavenia</a>
-    </div>
-    <div class="wrapper">
-        <h6 class="card__section-header" style="margin-top: 72px;">Škola</h6>
-        <div class="card shadow-lg">
-            <div class="card-body">
-                <h5 class="card-title">Názov školy</h5>
-                <input onformchange="storeSettings_schoolName();" class="form-control" type="text" id="form__school-name"
-                    placeholder="Názov školy">
-                <hr>
-                <h5 class="card-title">Logo školy</h5>
-                <form>
-                    <div class="form-group">
-                        <label for="form__school-logo-filename">Vyberte súbor s logom školy (.png/w)</label>
-                        <input type="file" class="form-control-file" id="form__school-logo-filename">
-                    </div>
-                </form>
-                <hr>
-                <h5 class="card-title">Adresa serveru Edupage</h5>
-                <input class="form-control" type="text" id="form__edupage-server" placeholder="Edupage server (https://www.skola.edupage.org)">
-                <hr>
-                <h5 class="card-title">Dodatočné web stránky</h5>
-                <input class="form-control" type="text" id="form__additional-webpages-1" style="margin-bottom: 8px;"
-                    placeholder="1/3 (Napr.: https://www.getsol.us)">
-                <input class="form-control" type="text" id="form__additional-webpages-2" style="margin-bottom: 8px;"
-                    placeholder="2/3">
-                <input class="form-control" type="text" id="form__additional-webpages-3" placeholder="3/3">
-            </div>
-        </div>
-        <h6 class="card__section-header" style="margin-top: 32px;">Aplikácia</h6>
-        <div class="card shadow-lg">
-            <div class="card-body">
-                <h5 class="card-title">Informácie o verziách</h5>
-                <p id="version_info_chromium">Chromium: <script>
-                        document.write(process.versions.chrome)
-                    </script>
-                </p>
-                <p id="version_info_nodejs">NodeJS: <script>
-                        document.write(process.versions.node)
-                    </script>
-                </p>
-                <p id="version_info_electron">Electron: <script>
-                        document.write(process.versions.electron)
-                    </script>
-                </p>
-                <hr>
-                <div class="buttonContainer_horizontal">
-                    <button type="button" onclick="switchAutoThemingState();" class="btn btn-primary">Povoliť autoTheming</button>
-                    <button type="button" onclick="resetSettings();" class="btn btn-warning">Reset nastavení</button>
+    <div id="wrapper">
+        <div id="overview" class="shadow-lg text-light fixed-top">
+            <div class="media">
+                <img class="mr-3" src="../assets/icons/ui/outline_settings_white_48dp.png" height="64" width="64" alt="Application settings">
+                <div class="media-body">
+                    <h3 class="mt-0">Nastavenia</h3>
+                    <p id="application__overview__text_appVersion" style="margin-top: -32px;">Verzia aplikácie: <span>{ app_version }</span></p>
                 </div>
             </div>
         </div>
+        <div id="content" data-simplebar>
+            <div class="row">
+                <div class="col">
+                    <h3>Škola</h3>
+                    <hr>
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h5>👋 <b>Názov školy</b></h5>
+                            <p>Bude použitý v záhlaví okna ako názov aplikácie.</p>
+                            <input id="application__content__input_schoolName" class="form-control bg-transparent" type="text"
+                                placeholder="">
+                        </div>
+                    </div>
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h5>😎 <b>Logo školy</b></h5>
+                            <p>Podobne ako názov, bude použité ako ikona aplikácie.</p>
+                            <input id="application__content__input_schoolLogoLocal" type="file" class="form-control-file">
+                            <h6 style="margin-top: 16px"><b>Alebo, chcete použiť obrázok z internetu?</b></h6>
+                            <input id="application__content__input_schoolLogoRemote" class="form-control bg-transparent" type="text" placeholder="">
+                            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="application__content_switch_selectedLogo" style="margin-top: 8px">
+                                <span class="mdl-switch__label">Typ obrázku: Lokálny (z disku)</span>
+                                <input type="checkbox" id="application__content_switch_selectedLogo" class="mdl-switch__input">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h5>📡<b> Edupage server</b></h5>
+                            <p>Primárny server, ktorý bude použitý na zobrazenie zastupovania.</p>
+                            <input id="application__content__input_edupageServer" class="form-control bg-transparent" type="text" placeholder="">
+                        </div>
+                    </div>
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h5>🌐 <b>Dodatočné web stránky</b></h5>
+                            <p>Tieto sa budú zobrazovať v určitom intervale na hlavnej stránke.</p>
+                            <!-- Slider with Starting Value -->
+                            <input id="application__content__input_additionalPages1" class="form-control bg-transparent" type="text" placeholder="">
+                            <input id="application__content__input_additionalPages2" class="form-control bg-transparent" type="text" placeholder="">
+                            <input id="application__content__input_additionalPages3" class="form-control bg-transparent" type="text" placeholder="">
+                        </div>
+                    </div>
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h5>⏲ <b>Interval zobrazenia stránok</b></h5>
+                            <p>Doba, počas ktorej budú stránky zobrazené. Predvolený interval je 10s.</p>
+                            <input id="application__content__input_webpageInterval" class="form-control bg-transparent" type="text" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <h3>Aplikácia</h3>
+                    <hr>
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h5>✨ <b>Vzhľad aplikácie</b></h5>
+                            <p>Vyberte či budú povolené dodatočné prvky vzhľadu alebo nie.</p>
+                            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="application__content_switch_autoTheming">
+                                <span class="mdl-switch__label">Povoliť dodatočné prvky vzhľadu</span>
+                                <input type="checkbox" id="application__content_switch_autoThemingState" class="mdl-switch__input" checked>
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h5>🔒 <b>Heslo</b></h5>
+                            <p>Toto heslo bude použité na prístup do nastavení. Je uložené ako čistý text. Takže sa odporúča použiť nejaké nové heslo. V budúcich verziách bude použité šifrovanie.</p>
+                            <input id="application__content__input_appPwd1" class="form-control bg-transparent" type="text" placeholder="•••••••••">
+                            <input id="application__content__input_appPwd2" class="form-control bg-transparent" type="text" placeholder="••••••••••">
+                        </div>
+                    </div>
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h5>🔧 <b>Riešenie problémov</b></h5>
+                            <p>Shit happens, you know. Ak niečo nefunguje správne alebo chcete začať odznovu, dá sa spraviť reset aplikácie.</p>
+                            <!-- Accent-colored raised button with ripple -->
+                            <button id="application__content__button_resetSettings" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                Obnoviť predvolené nastavenia
+                            </button>
+                            <button id="application__content__button_sendDiagData" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button" style="margin-left: 4px">
+                                Odoslať diagnostické údaje
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card shadow rounded">
+                        <div class="card-body" style="margin-bottom: -16px;">
+                            <h5 class="card-title" style="margin-bottom: 32px;">🤦‍ <b>Informácie o verziách</b></h5>
+                            <p style="margin-top: -16px">Nič naujímavé, no celkom užitočné pri riešení problémov.</p>
+                            <p id="version_info_chromium">Ares: <script>
+                                    document.write(process.versions.ares)
+                                </script>
+                            </p>
+                            <p id="version_info_electron">Chrome: <script>
+                                    document.write(process.versions.chrome)
+                                </script>
+                            </p>
+                            <p id="version_info_electron">Electron: <script>
+                                    document.write(process.versions.electron)
+                                </script>
+                            </p>
+                            <p id="version_info_nodejs">HTTP Parser: <script>
+                                    document.write(process.versions.http_parser)
+                                </script>
+                            </p>
+                            <p id="version_info_electron">NAPI: <script>
+                                    document.write(process.versions.napi)
+                                </script>
+                            </p>
+                            <p id="version_info_electron">NodeJS: <script>
+                                    document.write(process.versions.node)
+                                </script>
+                            </p>
+                            <p id="version_info_electron">ngHTTP2: <script>
+                                    document.write(process.versions.nghttp2)
+                                </script>
+                            </p>
+                            <p id="version_info_electron">openSSL: <script>
+                                    document.write(process.versions.openssl)
+                                </script>
+                            </p>
+                            <p id="version_info_electron">UV: <script>
+                                    document.write(process.versions.uv)
+                                </script>
+                            </p>
+                            <p id="version_info_electron">V8: <script>
+                                    document.write(process.versions.v8)
+                                </script>
+                            </p>
+                            <p id="version_info_electron">zLib: <script>
+                                    document.write(process.versions.zlib)
+                                </script>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="application__content__button_saveSettings" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: absolute; bottom: 0; right: 0; margin: 32px;">
+            <i class="material-icons">save</i>
+        </button>
     </div>
 
+    </div>
     <script>
         if (typeof module === 'object') {
             window.module = module;
             module = undefined;
         }
     </script>
-    <script async src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script async src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script async src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./Setitings.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/simplebar/dist/simplebar.min.js"></script>
+    <script src="../node_modules/material-design-lite/material.min.js"></script>
+    <script src="./Settings.js"></script>
     <script>
         if (window.module) module = window.module;
     </script>

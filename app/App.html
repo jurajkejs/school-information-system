@@ -7,28 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./App.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../node_modules/material-design-lite/material.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
         crossorigin="anonymous">
 </head>
 
 <body>
     <!-- Window header -->
-    <div class="navbar navbar-expand-lg fixed-top navbar-light bg-dark text-light shadow">
+    <div class="navbar navbar-expand-lg fixed-top navbar-light text-light shadow">
         <img src="../assets/icons/app.png" id=application__navbar_appIcon" width="30" height="30" class="d-inline-block align-top" alt="Application icon">
         <a class="navbar-brand" id="application__navbar_appTitle" style="margin-left: 8px !important; font-weight: 300;">Školský
             informačný systém</a>
     </div>
     <div class="text-center align-middle" id="application__loaderOverlay">
         <div class="align-middle" id="application__loaderOverlay__Container">
-            <div class="lds-ring">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <br>
             <h1 id="application__loaderOverlay__Text_Title">Prebieha spúšťanie</h1>
-            <h3 id="application__loaderOverlay__Text_Substitle"></h3>
+            <h5 id="application__loaderOverlay__Text_Substitle"></h5>
+            <div id="application__loaderOverlay__progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
         </div>
     </div>
 
@@ -117,6 +112,7 @@
     <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/material-design-lite/material.min.js"></script>
     <script src="./App.js"></script>
     <script>
         if (window.module) module = window.module;

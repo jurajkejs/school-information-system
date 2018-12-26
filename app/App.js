@@ -117,11 +117,11 @@ function applicationStartup() {
         getCurrentDateTime()[2] + ' ' +
         getCurrentDateTime()[3] + ':' +
         getCurrentDateTime()[4])
-    console.log('======================================================================')
+
 
     // Set application name
     console.log('[mainUI::applicationStartup] Setting up: schoolName')
-    if (application_storedSettings_schoolName == '*' || application_storedSettings_schoolName == '') {
+    if (application_storedSettings_schoolName == '*' || undefined || null) {
         application_mainUI_appTitle.innerHTML = application_defaults_appName
     } else {
         application_mainUI_appTitle.innerHTML = application_storedSettings_schoolName
@@ -129,7 +129,7 @@ function applicationStartup() {
 
     // Set application icon (school logo)
     console.log('[mainUI::applicationStartup] Setting up: schoolLogo')
-    if (!application_storedSettings_schoolLogo == '*' || !application_storedSettings_schoolLogo == '') {
+    if (!application_storedSettings_schoolLogo == '*' || undefined || null) {
         application_mainUI_appIcon.src = application_storedSettings_schoolLogo
     };
 
@@ -139,8 +139,8 @@ function applicationStartup() {
     Mousetrap.bind(['command+n', 'ctrl+n'], function () {
         let settingsWindow;
         settingsWindow = new BrowserWindow({
-            width: 800,
-            height: 600,
+            width: 1280,
+            height: 640,
         });
         settingsWindow.on('close', function () {
             settingsWindow = null
@@ -178,7 +178,6 @@ function applicationStartup() {
     application_mainUI_loaderOverlayTitle.innerHTML = 'Prebieha dokončovanie spúšťania'
     application_mainUI_loaderOverlaySubtitle.innerHTML = 'Čaká sa na dokončenie zvyšných procesov'
 
-    console.log('======================================================================')
     console.log('[mainUI::applicationStartup] Startup finished at: ' + getCurrentDateTime()[0] + '.' +
         getCurrentDateTime()[1] + '.' +
         getCurrentDateTime()[2] + ' ' +
@@ -190,6 +189,7 @@ function applicationStartup() {
         application__loaderOverlay.style.display = 'none'
         $('#wrapper').removeClass('blur')
     }, 3000)
+    console.log('======================================================================')
 };
 
 /*

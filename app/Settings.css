@@ -1,41 +1,73 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+p {
+    margin-top: -4px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h3,
+input {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h5 {
+    margin-top: 4px;
+}
+
+label {
+    font-family: 'Open Sans', sans-serif;
+    color: #757575;
+    font-size: 1.1rem;
+}
 
 html,
 body {
     height: 100%;
     width: 100%;
-    background-color: #fafafa;
+    overflow: hidden;
 }
 
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+form,
+input {
+    margin-top: 8px
 }
 
-.wrapper {
+#wrapper {
+    display: flex;
+    flex-flow: column;
     height: 100%;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+#overview {
+    display: flex;
+    flex-flow: row;
+    height: 96px;
+    padding: 16px;
+    background: linear-gradient(45deg, #3F51B5, #9EA7D9);
+}
+
+#content {
+    padding: 32px;
+    height: 100%;
+    margin-top: 64px;
+    position: relative;
+    flex: 1;
+    overflow: auto;
 }
 
 .card {
-    margin: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
-.card__section-header{
-    margin-left: 16px;
-}
-
-#btn_save_settings {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 16px;
-}
-
-.buttonContainer_horizontal {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.media-body {
+    margin-top: 8px;
 }
